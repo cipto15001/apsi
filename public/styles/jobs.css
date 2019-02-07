@@ -1,0 +1,67 @@
+.used-parameter-card {
+    border-left: 2px solid #fdc02e;
+    min-height: 60px;
+    padding: 0;
+    display: block;
+    margin-bottom: 10px;
+    cursor: pointer
+}
+
+.used-parameter-card .block-text {
+    padding-left: 20px;
+    width: 200px;
+    height: 100%;
+    border-right: 2px;
+    text-align: left;
+    font-weight: bold;
+    display: inline-block;
+}
+
+.used-parameter-card .edit-attribute {
+    cursor: pointer;
+    width: 60px;
+    height: 100%;
+    border-right: 2px;
+    line-height: 60px;
+    text-align: center;
+    background-color: #eee;
+    font-weight: bold;
+    display: inline-block;
+    float: right;
+    border: none;
+    outline: none
+}
+
+.attribute-card {
+    border-left: 2px solid #fdc02e;
+    min-height: 60px;
+    padding: 0 0 0;
+    display: none;
+    overflow: visible !important
+}
+
+.attribute-card .mdl-grid {
+    padding-left: 0;
+}
+
+.attribute-card .mdl-cell {
+    margin-left: 0;
+}
+
+.mdl-textfield{
+    padding: 0
+}
+.mdl-textfield__label {
+    top: 4px;
+}
+.mdl-textfield.is-dirty .mdl-textfield__label {
+    top: -26px
+}
+.mdl-textfield__label:after {
+    bottom: 0
+}
+
+.remove-attribute {
+    margin-right: 0 !important;
+    margin-top: 26px;
+}
