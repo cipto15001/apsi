@@ -18102,3 +18102,7 @@ run                ${nrun}, 1, Buat Mobcom, running, 2018_12_06_09_06_22_buat_mo
 #25 /Users/cipto/Coding/apsi-developer/apsi/artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
 #26 {main}
 "} 
+[2019-02-19 16:57:24] local.ERROR: Namespace declaration statement has to be the very first statement or after any declare call in the script {"exception":"[object] (Symfony\\Component\\Debug\\Exception\\FatalErrorException(code: 64): Namespace declaration statement has to be the very first statement or after any declare call in the script at F:\\Projects\\apsi-baru\\app\\Http\\Controllers\\WorkspacesController.php:3)
+[stacktrace]
+#0 {main}
+"} 
