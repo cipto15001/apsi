@@ -58,7 +58,8 @@
 #55 D:\\Programming\\PHP\\apsi\\server.php(21): require_once('D:\\\\Programming\\\\...')
 #56 {main}
 "} 
-[2018-08-26 12:36:03] local.ERROR: Trying to get property of non-object (View: D:\Programming\PHP\apsi\resources\views\jobs\create_empty.blade.php) {"userId":1,"email":"gamer.fikri@gmail.com","exception":"[object] (ErrorException(code: 0): Trying to get property of non-object (View: D:\\Programming\\PHP\\apsi\esources\\views\\jobs\\create_empty.blade.php) at D:\\Programming\\PHP\\apsi\\storage\\framework\\views\\80f499b4f7ea6379c33f04f0f9467475a72bf13e.php:12, ErrorException(code: 0): Trying to get property of non-object at D:\\Programming\\PHP\\apsi\\storage\\framework\\views\\80f499b4f7ea6379c33f04f0f9467475a72bf13e.php:12)
+[2018-08-26 12:36:03] local.ERROR: Trying to get property of non-object (View: D:\Programming\PHP\apsi\resources\views\jobs\create_empty.blade.php) {"userId":1,"email":"gamer.fikri@gmail.com","exception":"[object] (ErrorException(code: 0): Trying to get property of non-object (View: D:\\Programming\\PHP\\apsi\
+esources\\views\\jobs\\create_empty.blade.php) at D:\\Programming\\PHP\\apsi\\storage\\framework\\views\\80f499b4f7ea6379c33f04f0f9467475a72bf13e.php:12, ErrorException(code: 0): Trying to get property of non-object at D:\\Programming\\PHP\\apsi\\storage\\framework\\views\\80f499b4f7ea6379c33f04f0f9467475a72bf13e.php:12)
 [stacktrace]
 #0 D:\\Programming\\PHP\\apsi\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(45): Illuminate\\View\\Engines\\CompilerEngine->handleViewException(Object(ErrorException), 1)
 #1 D:\\Programming\\PHP\\apsi\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(59): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('D:\\\\Programming\\\\...', Array)
@@ -121,7 +122,8 @@
 #58 D:\\Programming\\PHP\\apsi\\server.php(21): require_once('D:\\\\Programming\\\\...')
 #59 {main}
 "} 
-[2018-08-26 12:36:30] local.ERROR: Undefined property: Illuminate\Database\Eloquent\Relations\BelongsTo::$file_name (View: D:\Programming\PHP\apsi\resources\views\jobs\create_empty.blade.php) {"userId":1,"email":"gamer.fikri@gmail.com","exception":"[object] (ErrorException(code: 0): Undefined property: Illuminate\\Database\\Eloquent\\Relations\\BelongsTo::$file_name (View: D:\\Programming\\PHP\\apsi\esources\\views\\jobs\\create_empty.blade.php) at D:\\Programming\\PHP\\apsi\\storage\\framework\\views\\80f499b4f7ea6379c33f04f0f9467475a72bf13e.php:12, ErrorException(code: 0): Undefined property: Illuminate\\Database\\Eloquent\\Relations\\BelongsTo::$file_name at D:\\Programming\\PHP\\apsi\\storage\\framework\\views\\80f499b4f7ea6379c33f04f0f9467475a72bf13e.php:12)
+[2018-08-26 12:36:30] local.ERROR: Undefined property: Illuminate\Database\Eloquent\Relations\BelongsTo::$file_name (View: D:\Programming\PHP\apsi\resources\views\jobs\create_empty.blade.php) {"userId":1,"email":"gamer.fikri@gmail.com","exception":"[object] (ErrorException(code: 0): Undefined property: Illuminate\\Database\\Eloquent\\Relations\\BelongsTo::$file_name (View: D:\\Programming\\PHP\\apsi\
+esources\\views\\jobs\\create_empty.blade.php) at D:\\Programming\\PHP\\apsi\\storage\\framework\\views\\80f499b4f7ea6379c33f04f0f9467475a72bf13e.php:12, ErrorException(code: 0): Undefined property: Illuminate\\Database\\Eloquent\\Relations\\BelongsTo::$file_name at D:\\Programming\\PHP\\apsi\\storage\\framework\\views\\80f499b4f7ea6379c33f04f0f9467475a72bf13e.php:12)
 [stacktrace]
 #0 D:\\Programming\\PHP\\apsi\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(45): Illuminate\\View\\Engines\\CompilerEngine->handleViewException(Object(ErrorException), 1)
 #1 D:\\Programming\\PHP\\apsi\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(59): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('D:\\\\Programming\\\\...', Array)
@@ -184,7 +186,8 @@
 #58 D:\\Programming\\PHP\\apsi\\server.php(21): require_once('D:\\\\Programming\\\\...')
 #59 {main}
 "} 
-[2018-08-26 12:36:55] local.ERROR: Undefined property: Illuminate\Database\Eloquent\Relations\BelongsTo::$file_name (View: D:\Programming\PHP\apsi\resources\views\jobs\create_empty.blade.php) {"userId":1,"email":"gamer.fikri@gmail.com","exception":"[object] (ErrorException(code: 0): Undefined property: Illuminate\\Database\\Eloquent\\Relations\\BelongsTo::$file_name (View: D:\\Programming\\PHP\\apsi\esources\\views\\jobs\\create_empty.blade.php) at D:\\Programming\\PHP\\apsi\\storage\\framework\\views\\80f499b4f7ea6379c33f04f0f9467475a72bf13e.php:12, ErrorException(code: 0): Undefined property: Illuminate\\Database\\Eloquent\\Relations\\BelongsTo::$file_name at D:\\Programming\\PHP\\apsi\\storage\\framework\\views\\80f499b4f7ea6379c33f04f0f9467475a72bf13e.php:12)
+[2018-08-26 12:36:55] local.ERROR: Undefined property: Illuminate\Database\Eloquent\Relations\BelongsTo::$file_name (View: D:\Programming\PHP\apsi\resources\views\jobs\create_empty.blade.php) {"userId":1,"email":"gamer.fikri@gmail.com","exception":"[object] (ErrorException(code: 0): Undefined property: Illuminate\\Database\\Eloquent\\Relations\\BelongsTo::$file_name (View: D:\\Programming\\PHP\\apsi\
+esources\\views\\jobs\\create_empty.blade.php) at D:\\Programming\\PHP\\apsi\\storage\\framework\\views\\80f499b4f7ea6379c33f04f0f9467475a72bf13e.php:12, ErrorException(code: 0): Undefined property: Illuminate\\Database\\Eloquent\\Relations\\BelongsTo::$file_name at D:\\Programming\\PHP\\apsi\\storage\\framework\\views\\80f499b4f7ea6379c33f04f0f9467475a72bf13e.php:12)
 [stacktrace]
 #0 D:\\Programming\\PHP\\apsi\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(45): Illuminate\\View\\Engines\\CompilerEngine->handleViewException(Object(ErrorException), 1)
 #1 D:\\Programming\\PHP\\apsi\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(59): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('D:\\\\Programming\\\\...', Array)
@@ -247,7 +250,8 @@
 #58 D:\\Programming\\PHP\\apsi\\server.php(21): require_once('D:\\\\Programming\\\\...')
 #59 {main}
 "} 
-[2018-08-26 12:40:40] local.ERROR: Undefined property: Illuminate\Database\Eloquent\Relations\BelongsTo::$file_name (View: D:\Programming\PHP\apsi\resources\views\jobs\create_empty.blade.php) {"userId":1,"email":"gamer.fikri@gmail.com","exception":"[object] (ErrorException(code: 0): Undefined property: Illuminate\\Database\\Eloquent\\Relations\\BelongsTo::$file_name (View: D:\\Programming\\PHP\\apsi\esources\\views\\jobs\\create_empty.blade.php) at D:\\Programming\\PHP\\apsi\\storage\\framework\\views\\80f499b4f7ea6379c33f04f0f9467475a72bf13e.php:12, ErrorException(code: 0): Undefined property: Illuminate\\Database\\Eloquent\\Relations\\BelongsTo::$file_name at D:\\Programming\\PHP\\apsi\\storage\\framework\\views\\80f499b4f7ea6379c33f04f0f9467475a72bf13e.php:12)
+[2018-08-26 12:40:40] local.ERROR: Undefined property: Illuminate\Database\Eloquent\Relations\BelongsTo::$file_name (View: D:\Programming\PHP\apsi\resources\views\jobs\create_empty.blade.php) {"userId":1,"email":"gamer.fikri@gmail.com","exception":"[object] (ErrorException(code: 0): Undefined property: Illuminate\\Database\\Eloquent\\Relations\\BelongsTo::$file_name (View: D:\\Programming\\PHP\\apsi\
+esources\\views\\jobs\\create_empty.blade.php) at D:\\Programming\\PHP\\apsi\\storage\\framework\\views\\80f499b4f7ea6379c33f04f0f9467475a72bf13e.php:12, ErrorException(code: 0): Undefined property: Illuminate\\Database\\Eloquent\\Relations\\BelongsTo::$file_name at D:\\Programming\\PHP\\apsi\\storage\\framework\\views\\80f499b4f7ea6379c33f04f0f9467475a72bf13e.php:12)
 [stacktrace]
 #0 D:\\Programming\\PHP\\apsi\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(45): Illuminate\\View\\Engines\\CompilerEngine->handleViewException(Object(ErrorException), 1)
 #1 D:\\Programming\\PHP\\apsi\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(59): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('D:\\\\Programming\\\\...', Array)
@@ -368,11 +372,14 @@
 #53 D:\\Programming\\PHP\\apsi\\server.php(21): require_once('D:\\\\Programming\\\\...')
 #54 {main}
 "} 
-[2018-08-26 19:40:35] local.ERROR: Unable to connect to remote server. {"userId":1,"email":"gamer.fikri@gmail.com","exception":"[object] (RuntimeException(code: 0): Unable to connect to remote server. at D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\emote\\src\\Connection.php:143)
+[2018-08-26 19:40:35] local.ERROR: Unable to connect to remote server. {"userId":1,"email":"gamer.fikri@gmail.com","exception":"[object] (RuntimeException(code: 0): Unable to connect to remote server. at D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\
+emote\\src\\Connection.php:143)
 [stacktrace]
-#0 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\emote\\src\\Connection.php(115): Collective\\Remote\\Connection->getGateway()
+#0 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\
+emote\\src\\Connection.php(115): Collective\\Remote\\Connection->getGateway()
 #1 [internal function]: Collective\\Remote\\Connection->run(Array, Object(Closure))
-#2 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\emote\\src\\RemoteManager.php(219): call_user_func_array(Array, Array)
+#2 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\
+emote\\src\\RemoteManager.php(219): call_user_func_array(Array, Array)
 #3 D:\\Programming\\PHP\\apsi\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(221): Collective\\Remote\\RemoteManager->__call('run', Array)
 #4 D:\\Programming\\PHP\\apsi\\app\\Services\\SSHService.php(50): Illuminate\\Support\\Facades\\Facade::__callStatic('run', Array)
 #5 D:\\Programming\\PHP\\apsi\\app\\Http\\Controllers\\OutputController.php(22): App\\Services\\SSHService->ls()
@@ -433,11 +440,14 @@
 #60 D:\\Programming\\PHP\\apsi\\server.php(21): require_once('D:\\\\Programming\\\\...')
 #61 {main}
 "} 
-[2018-08-26 19:40:46] local.ERROR: Unable to connect to remote server. {"userId":1,"email":"gamer.fikri@gmail.com","exception":"[object] (RuntimeException(code: 0): Unable to connect to remote server. at D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\emote\\src\\Connection.php:143)
+[2018-08-26 19:40:46] local.ERROR: Unable to connect to remote server. {"userId":1,"email":"gamer.fikri@gmail.com","exception":"[object] (RuntimeException(code: 0): Unable to connect to remote server. at D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\
+emote\\src\\Connection.php:143)
 [stacktrace]
-#0 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\emote\\src\\Connection.php(243): Collective\\Remote\\Connection->getGateway()
+#0 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\
+emote\\src\\Connection.php(243): Collective\\Remote\\Connection->getGateway()
 #1 [internal function]: Collective\\Remote\\Connection->getString('/scratch/erick/...')
-#2 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\emote\\src\\RemoteManager.php(219): call_user_func_array(Array, Array)
+#2 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\
+emote\\src\\RemoteManager.php(219): call_user_func_array(Array, Array)
 #3 D:\\Programming\\PHP\\apsi\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(221): Collective\\Remote\\RemoteManager->__call('getString', Array)
 #4 D:\\Programming\\PHP\\apsi\\app\\Services\\SSHService.php(77): Illuminate\\Support\\Facades\\Facade::__callStatic('getString', Array)
 #5 D:\\Programming\\PHP\\apsi\\app\\Http\\Controllers\\FilesController.php(37): App\\Services\\SSHService->getFile('38353229-a292-4...')
@@ -506,11 +516,15 @@
 #3 D:\\Programming\\PHP\\apsi\\vendor\\phpseclib\\phpseclib\\phpseclib\\Net\\SSH2.php(2114): phpseclib\\Net\\SSH2->_connect()
 #4 [internal function]: phpseclib\\Net\\SSH2->_login('erick', 'aA!12345')
 #5 D:\\Programming\\PHP\\apsi\\vendor\\phpseclib\\phpseclib\\phpseclib\\Net\\SFTP.php(404): call_user_func_array(Array, Array)
-#6 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\emote\\src\\SecLibGateway.php(98): phpseclib\\Net\\SFTP->login('erick', 'aA!12345')
-#7 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\emote\\src\\Connection.php(142): Collective\\Remote\\SecLibGateway->connect('erick')
-#8 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\emote\\src\\Connection.php(115): Collective\\Remote\\Connection->getGateway()
+#6 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\
+emote\\src\\SecLibGateway.php(98): phpseclib\\Net\\SFTP->login('erick', 'aA!12345')
+#7 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\
+emote\\src\\Connection.php(142): Collective\\Remote\\SecLibGateway->connect('erick')
+#8 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\
+emote\\src\\Connection.php(115): Collective\\Remote\\Connection->getGateway()
 #9 [internal function]: Collective\\Remote\\Connection->run(Array, Object(Closure))
-#10 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\emote\\src\\RemoteManager.php(219): call_user_func_array(Array, Array)
+#10 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\
+emote\\src\\RemoteManager.php(219): call_user_func_array(Array, Array)
 #11 D:\\Programming\\PHP\\apsi\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(221): Collective\\Remote\\RemoteManager->__call('run', Array)
 #12 D:\\Programming\\PHP\\apsi\\app\\Services\\SSHService.php(50): Illuminate\\Support\\Facades\\Facade::__callStatic('run', Array)
 #13 D:\\Programming\\PHP\\apsi\\app\\Http\\Controllers\\OutputController.php(22): App\\Services\\SSHService->ls()
@@ -571,11 +585,14 @@
 #68 D:\\Programming\\PHP\\apsi\\server.php(21): require_once('D:\\\\Programming\\\\...')
 #69 {main}
 "} 
-[2018-08-26 19:41:24] local.ERROR: Unable to connect to remote server. {"userId":1,"email":"gamer.fikri@gmail.com","exception":"[object] (RuntimeException(code: 0): Unable to connect to remote server. at D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\emote\\src\\Connection.php:143)
+[2018-08-26 19:41:24] local.ERROR: Unable to connect to remote server. {"userId":1,"email":"gamer.fikri@gmail.com","exception":"[object] (RuntimeException(code: 0): Unable to connect to remote server. at D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\
+emote\\src\\Connection.php:143)
 [stacktrace]
-#0 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\emote\\src\\Connection.php(115): Collective\\Remote\\Connection->getGateway()
+#0 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\
+emote\\src\\Connection.php(115): Collective\\Remote\\Connection->getGateway()
 #1 [internal function]: Collective\\Remote\\Connection->run(Array, Object(Closure))
-#2 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\emote\\src\\RemoteManager.php(219): call_user_func_array(Array, Array)
+#2 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\
+emote\\src\\RemoteManager.php(219): call_user_func_array(Array, Array)
 #3 D:\\Programming\\PHP\\apsi\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(221): Collective\\Remote\\RemoteManager->__call('run', Array)
 #4 D:\\Programming\\PHP\\apsi\\app\\Services\\SSHService.php(50): Illuminate\\Support\\Facades\\Facade::__callStatic('run', Array)
 #5 D:\\Programming\\PHP\\apsi\\app\\Http\\Controllers\\OutputController.php(22): App\\Services\\SSHService->ls()
@@ -643,11 +660,15 @@
 #2 D:\\Programming\\PHP\\apsi\\vendor\\phpseclib\\phpseclib\\phpseclib\\Net\\SSH2.php(2114): phpseclib\\Net\\SSH2->_connect()
 #3 [internal function]: phpseclib\\Net\\SSH2->_login('erick', 'aA!12345')
 #4 D:\\Programming\\PHP\\apsi\\vendor\\phpseclib\\phpseclib\\phpseclib\\Net\\SFTP.php(404): call_user_func_array(Array, Array)
-#5 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\emote\\src\\SecLibGateway.php(98): phpseclib\\Net\\SFTP->login('erick', 'aA!12345')
-#6 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\emote\\src\\Connection.php(142): Collective\\Remote\\SecLibGateway->connect('erick')
-#7 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\emote\\src\\Connection.php(115): Collective\\Remote\\Connection->getGateway()
+#5 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\
+emote\\src\\SecLibGateway.php(98): phpseclib\\Net\\SFTP->login('erick', 'aA!12345')
+#6 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\
+emote\\src\\Connection.php(142): Collective\\Remote\\SecLibGateway->connect('erick')
+#7 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\
+emote\\src\\Connection.php(115): Collective\\Remote\\Connection->getGateway()
 #8 [internal function]: Collective\\Remote\\Connection->run(Array, Object(Closure))
-#9 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\emote\\src\\RemoteManager.php(219): call_user_func_array(Array, Array)
+#9 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\
+emote\\src\\RemoteManager.php(219): call_user_func_array(Array, Array)
 #10 D:\\Programming\\PHP\\apsi\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(221): Collective\\Remote\\RemoteManager->__call('run', Array)
 #11 D:\\Programming\\PHP\\apsi\\app\\Services\\SSHService.php(66): Illuminate\\Support\\Facades\\Facade::__callStatic('run', Array)
 #12 D:\\Programming\\PHP\\apsi\\app\\Http\\Controllers\\FilesManagerController.php(17): App\\Services\\SSHService->ls_filemanager('/')
@@ -1538,11 +1559,15 @@
 #2 D:\\Programming\\PHP\\apsi\\vendor\\phpseclib\\phpseclib\\phpseclib\\Net\\SSH2.php(2114): phpseclib\\Net\\SSH2->_connect()
 #3 [internal function]: phpseclib\\Net\\SSH2->_login('erick', 'aA!12345')
 #4 D:\\Programming\\PHP\\apsi\\vendor\\phpseclib\\phpseclib\\phpseclib\\Net\\SFTP.php(404): call_user_func_array(Array, Array)
-#5 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\emote\\src\\SecLibGateway.php(98): phpseclib\\Net\\SFTP->login('erick', 'aA!12345')
-#6 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\emote\\src\\Connection.php(142): Collective\\Remote\\SecLibGateway->connect('erick')
-#7 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\emote\\src\\Connection.php(115): Collective\\Remote\\Connection->getGateway()
+#5 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\
+emote\\src\\SecLibGateway.php(98): phpseclib\\Net\\SFTP->login('erick', 'aA!12345')
+#6 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\
+emote\\src\\Connection.php(142): Collective\\Remote\\SecLibGateway->connect('erick')
+#7 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\
+emote\\src\\Connection.php(115): Collective\\Remote\\Connection->getGateway()
 #8 [internal function]: Collective\\Remote\\Connection->run(Array, Object(Closure))
-#9 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\emote\\src\\RemoteManager.php(219): call_user_func_array(Array, Array)
+#9 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\
+emote\\src\\RemoteManager.php(219): call_user_func_array(Array, Array)
 #10 D:\\Programming\\PHP\\apsi\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(221): Collective\\Remote\\RemoteManager->__call('run', Array)
 #11 D:\\Programming\\PHP\\apsi\\app\\Services\\SSHService.php(84): Illuminate\\Support\\Facades\\Facade::__callStatic('run', Array)
 #12 D:\\Programming\\PHP\\apsi\\app\\Http\\Controllers\\FilesManagerController.php(139): App\\Services\\SSHService->run()
@@ -1611,11 +1636,15 @@
 #3 D:\\Programming\\PHP\\apsi\\vendor\\phpseclib\\phpseclib\\phpseclib\\Net\\SSH2.php(2114): phpseclib\\Net\\SSH2->_connect()
 #4 [internal function]: phpseclib\\Net\\SSH2->_login('erick', 'aA!12345')
 #5 D:\\Programming\\PHP\\apsi\\vendor\\phpseclib\\phpseclib\\phpseclib\\Net\\SFTP.php(404): call_user_func_array(Array, Array)
-#6 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\emote\\src\\SecLibGateway.php(98): phpseclib\\Net\\SFTP->login('erick', 'aA!12345')
-#7 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\emote\\src\\Connection.php(142): Collective\\Remote\\SecLibGateway->connect('erick')
-#8 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\emote\\src\\Connection.php(115): Collective\\Remote\\Connection->getGateway()
+#6 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\
+emote\\src\\SecLibGateway.php(98): phpseclib\\Net\\SFTP->login('erick', 'aA!12345')
+#7 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\
+emote\\src\\Connection.php(142): Collective\\Remote\\SecLibGateway->connect('erick')
+#8 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\
+emote\\src\\Connection.php(115): Collective\\Remote\\Connection->getGateway()
 #9 [internal function]: Collective\\Remote\\Connection->run(Array, Object(Closure))
-#10 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\emote\\src\\RemoteManager.php(219): call_user_func_array(Array, Array)
+#10 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\
+emote\\src\\RemoteManager.php(219): call_user_func_array(Array, Array)
 #11 D:\\Programming\\PHP\\apsi\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(221): Collective\\Remote\\RemoteManager->__call('run', Array)
 #12 D:\\Programming\\PHP\\apsi\\app\\Services\\SSHService.php(66): Illuminate\\Support\\Facades\\Facade::__callStatic('run', Array)
 #13 D:\\Programming\\PHP\\apsi\\app\\Http\\Controllers\\FilesManagerController.php(21): App\\Services\\SSHService->ls_filemanager('/')
@@ -1676,11 +1705,14 @@
 #68 D:\\Programming\\PHP\\apsi\\server.php(21): require_once('D:\\\\Programming\\\\...')
 #69 {main}
 "} 
-[2018-08-28 08:21:08] local.ERROR: Unable to connect to remote server. {"exception":"[object] (RuntimeException(code: 0): Unable to connect to remote server. at D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\emote\\src\\Connection.php:143)
+[2018-08-28 08:21:08] local.ERROR: Unable to connect to remote server. {"exception":"[object] (RuntimeException(code: 0): Unable to connect to remote server. at D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\
+emote\\src\\Connection.php:143)
 [stacktrace]
-#0 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\emote\\src\\Connection.php(115): Collective\\Remote\\Connection->getGateway()
+#0 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\
+emote\\src\\Connection.php(115): Collective\\Remote\\Connection->getGateway()
 #1 [internal function]: Collective\\Remote\\Connection->run(Array, Object(Closure))
-#2 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\emote\\src\\RemoteManager.php(219): call_user_func_array(Array, Array)
+#2 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\
+emote\\src\\RemoteManager.php(219): call_user_func_array(Array, Array)
 #3 D:\\Programming\\PHP\\apsi\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(221): Collective\\Remote\\RemoteManager->__call('run', Array)
 #4 D:\\Programming\\PHP\\apsi\\app\\Services\\SSHService.php(66): Illuminate\\Support\\Facades\\Facade::__callStatic('run', Array)
 #5 D:\\Programming\\PHP\\apsi\\app\\Http\\Controllers\\FilesManagerController.php(21): App\\Services\\SSHService->ls_filemanager('/')
@@ -1741,11 +1773,14 @@
 #60 D:\\Programming\\PHP\\apsi\\server.php(21): require_once('D:\\\\Programming\\\\...')
 #61 {main}
 "} 
-[2018-08-28 08:21:26] local.ERROR: Unable to connect to remote server. {"exception":"[object] (RuntimeException(code: 0): Unable to connect to remote server. at D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\emote\\src\\Connection.php:143)
+[2018-08-28 08:21:26] local.ERROR: Unable to connect to remote server. {"exception":"[object] (RuntimeException(code: 0): Unable to connect to remote server. at D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\
+emote\\src\\Connection.php:143)
 [stacktrace]
-#0 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\emote\\src\\Connection.php(115): Collective\\Remote\\Connection->getGateway()
+#0 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\
+emote\\src\\Connection.php(115): Collective\\Remote\\Connection->getGateway()
 #1 [internal function]: Collective\\Remote\\Connection->run(Array, Object(Closure))
-#2 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\emote\\src\\RemoteManager.php(219): call_user_func_array(Array, Array)
+#2 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\
+emote\\src\\RemoteManager.php(219): call_user_func_array(Array, Array)
 #3 D:\\Programming\\PHP\\apsi\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(221): Collective\\Remote\\RemoteManager->__call('run', Array)
 #4 D:\\Programming\\PHP\\apsi\\app\\Services\\SSHService.php(66): Illuminate\\Support\\Facades\\Facade::__callStatic('run', Array)
 #5 D:\\Programming\\PHP\\apsi\\app\\Http\\Controllers\\FilesManagerController.php(21): App\\Services\\SSHService->ls_filemanager('/')
@@ -1813,11 +1848,15 @@
 #2 D:\\Programming\\PHP\\apsi\\vendor\\phpseclib\\phpseclib\\phpseclib\\Net\\SSH2.php(2114): phpseclib\\Net\\SSH2->_connect()
 #3 [internal function]: phpseclib\\Net\\SSH2->_login('erick', 'aA!12345')
 #4 D:\\Programming\\PHP\\apsi\\vendor\\phpseclib\\phpseclib\\phpseclib\\Net\\SFTP.php(404): call_user_func_array(Array, Array)
-#5 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\emote\\src\\SecLibGateway.php(98): phpseclib\\Net\\SFTP->login('erick', 'aA!12345')
-#6 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\emote\\src\\Connection.php(142): Collective\\Remote\\SecLibGateway->connect('erick')
-#7 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\emote\\src\\Connection.php(115): Collective\\Remote\\Connection->getGateway()
+#5 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\
+emote\\src\\SecLibGateway.php(98): phpseclib\\Net\\SFTP->login('erick', 'aA!12345')
+#6 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\
+emote\\src\\Connection.php(142): Collective\\Remote\\SecLibGateway->connect('erick')
+#7 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\
+emote\\src\\Connection.php(115): Collective\\Remote\\Connection->getGateway()
 #8 [internal function]: Collective\\Remote\\Connection->run(Array, Object(Closure))
-#9 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\emote\\src\\RemoteManager.php(219): call_user_func_array(Array, Array)
+#9 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\
+emote\\src\\RemoteManager.php(219): call_user_func_array(Array, Array)
 #10 D:\\Programming\\PHP\\apsi\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(221): Collective\\Remote\\RemoteManager->__call('run', Array)
 #11 D:\\Programming\\PHP\\apsi\\app\\Services\\SSHService.php(66): Illuminate\\Support\\Facades\\Facade::__callStatic('run', Array)
 #12 D:\\Programming\\PHP\\apsi\\app\\Http\\Controllers\\FilesManagerController.php(21): App\\Services\\SSHService->ls_filemanager('/testing')
@@ -1878,11 +1917,14 @@
 #67 D:\\Programming\\PHP\\apsi\\server.php(21): require_once('D:\\\\Programming\\\\...')
 #68 {main}
 "} 
-[2018-08-28 08:28:21] local.ERROR: Unable to connect to remote server. {"exception":"[object] (RuntimeException(code: 0): Unable to connect to remote server. at D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\emote\\src\\Connection.php:143)
+[2018-08-28 08:28:21] local.ERROR: Unable to connect to remote server. {"exception":"[object] (RuntimeException(code: 0): Unable to connect to remote server. at D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\
+emote\\src\\Connection.php:143)
 [stacktrace]
-#0 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\emote\\src\\Connection.php(115): Collective\\Remote\\Connection->getGateway()
+#0 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\
+emote\\src\\Connection.php(115): Collective\\Remote\\Connection->getGateway()
 #1 [internal function]: Collective\\Remote\\Connection->run(Array, Object(Closure))
-#2 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\emote\\src\\RemoteManager.php(219): call_user_func_array(Array, Array)
+#2 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\
+emote\\src\\RemoteManager.php(219): call_user_func_array(Array, Array)
 #3 D:\\Programming\\PHP\\apsi\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(221): Collective\\Remote\\RemoteManager->__call('run', Array)
 #4 D:\\Programming\\PHP\\apsi\\app\\Services\\SSHService.php(84): Illuminate\\Support\\Facades\\Facade::__callStatic('run', Array)
 #5 D:\\Programming\\PHP\\apsi\\app\\Http\\Controllers\\FilesManagerController.php(139): App\\Services\\SSHService->run()
@@ -1943,11 +1985,14 @@
 #60 D:\\Programming\\PHP\\apsi\\server.php(21): require_once('D:\\\\Programming\\\\...')
 #61 {main}
 "} 
-[2018-08-28 08:28:40] local.ERROR: Unable to connect to remote server. {"exception":"[object] (RuntimeException(code: 0): Unable to connect to remote server. at D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\emote\\src\\Connection.php:143)
+[2018-08-28 08:28:40] local.ERROR: Unable to connect to remote server. {"exception":"[object] (RuntimeException(code: 0): Unable to connect to remote server. at D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\
+emote\\src\\Connection.php:143)
 [stacktrace]
-#0 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\emote\\src\\Connection.php(115): Collective\\Remote\\Connection->getGateway()
+#0 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\
+emote\\src\\Connection.php(115): Collective\\Remote\\Connection->getGateway()
 #1 [internal function]: Collective\\Remote\\Connection->run(Array, Object(Closure))
-#2 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\emote\\src\\RemoteManager.php(219): call_user_func_array(Array, Array)
+#2 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\
+emote\\src\\RemoteManager.php(219): call_user_func_array(Array, Array)
 #3 D:\\Programming\\PHP\\apsi\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(221): Collective\\Remote\\RemoteManager->__call('run', Array)
 #4 D:\\Programming\\PHP\\apsi\\app\\Services\\SSHService.php(66): Illuminate\\Support\\Facades\\Facade::__callStatic('run', Array)
 #5 D:\\Programming\\PHP\\apsi\\app\\Http\\Controllers\\FilesManagerController.php(21): App\\Services\\SSHService->ls_filemanager('/')
@@ -4052,11 +4097,14 @@
 #53 D:\\Programming\\PHP\\apsi\\server.php(21): require_once('D:\\\\Programming\\\\...')
 #54 {main}
 "} 
-[2018-08-28 19:43:38] local.ERROR: Unable to connect to remote server. {"exception":"[object] (RuntimeException(code: 0): Unable to connect to remote server. at D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\emote\\src\\Connection.php:143)
+[2018-08-28 19:43:38] local.ERROR: Unable to connect to remote server. {"exception":"[object] (RuntimeException(code: 0): Unable to connect to remote server. at D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\
+emote\\src\\Connection.php:143)
 [stacktrace]
-#0 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\emote\\src\\Connection.php(115): Collective\\Remote\\Connection->getGateway()
+#0 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\
+emote\\src\\Connection.php(115): Collective\\Remote\\Connection->getGateway()
 #1 [internal function]: Collective\\Remote\\Connection->run(Array, Object(Closure))
-#2 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\emote\\src\\RemoteManager.php(219): call_user_func_array(Array, Array)
+#2 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\
+emote\\src\\RemoteManager.php(219): call_user_func_array(Array, Array)
 #3 D:\\Programming\\PHP\\apsi\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(221): Collective\\Remote\\RemoteManager->__call('run', Array)
 #4 D:\\Programming\\PHP\\apsi\\app\\Services\\SSHService.php(66): Illuminate\\Support\\Facades\\Facade::__callStatic('run', Array)
 #5 D:\\Programming\\PHP\\apsi\\app\\Http\\Controllers\\FilesManagerController.php(19): App\\Services\\SSHService->ls_filemanager('/cobaaa')
@@ -4422,11 +4470,14 @@
 #56 D:\\Programming\\PHP\\apsi\\server.php(21): require_once('D:\\\\Programming\\\\...')
 #57 {main}
 "} 
-[2018-08-28 20:10:37] local.ERROR: Unable to connect to remote server. {"exception":"[object] (RuntimeException(code: 0): Unable to connect to remote server. at D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\emote\\src\\Connection.php:143)
+[2018-08-28 20:10:37] local.ERROR: Unable to connect to remote server. {"exception":"[object] (RuntimeException(code: 0): Unable to connect to remote server. at D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\
+emote\\src\\Connection.php:143)
 [stacktrace]
-#0 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\emote\\src\\Connection.php(115): Collective\\Remote\\Connection->getGateway()
+#0 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\
+emote\\src\\Connection.php(115): Collective\\Remote\\Connection->getGateway()
 #1 [internal function]: Collective\\Remote\\Connection->run(Array, Object(Closure))
-#2 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\emote\\src\\RemoteManager.php(219): call_user_func_array(Array, Array)
+#2 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\
+emote\\src\\RemoteManager.php(219): call_user_func_array(Array, Array)
 #3 D:\\Programming\\PHP\\apsi\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(221): Collective\\Remote\\RemoteManager->__call('run', Array)
 #4 D:\\Programming\\PHP\\apsi\\app\\Services\\SSHService.php(85): Illuminate\\Support\\Facades\\Facade::__callStatic('run', Array)
 #5 D:\\Programming\\PHP\\apsi\\app\\Http\\Controllers\\FilesManagerController.php(58): App\\Services\\SSHService->run()
@@ -4611,11 +4662,15 @@
 #3 D:\\Programming\\PHP\\apsi\\vendor\\phpseclib\\phpseclib\\phpseclib\\Net\\SSH2.php(2114): phpseclib\\Net\\SSH2->_connect()
 #4 [internal function]: phpseclib\\Net\\SSH2->_login('erick', 'aA!12345')
 #5 D:\\Programming\\PHP\\apsi\\vendor\\phpseclib\\phpseclib\\phpseclib\\Net\\SFTP.php(404): call_user_func_array(Array, Array)
-#6 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\emote\\src\\SecLibGateway.php(98): phpseclib\\Net\\SFTP->login('erick', 'aA!12345')
-#7 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\emote\\src\\Connection.php(142): Collective\\Remote\\SecLibGateway->connect('erick')
-#8 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\emote\\src\\Connection.php(115): Collective\\Remote\\Connection->getGateway()
+#6 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\
+emote\\src\\SecLibGateway.php(98): phpseclib\\Net\\SFTP->login('erick', 'aA!12345')
+#7 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\
+emote\\src\\Connection.php(142): Collective\\Remote\\SecLibGateway->connect('erick')
+#8 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\
+emote\\src\\Connection.php(115): Collective\\Remote\\Connection->getGateway()
 #9 [internal function]: Collective\\Remote\\Connection->run(Array, Object(Closure))
-#10 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\emote\\src\\RemoteManager.php(219): call_user_func_array(Array, Array)
+#10 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\
+emote\\src\\RemoteManager.php(219): call_user_func_array(Array, Array)
 #11 D:\\Programming\\PHP\\apsi\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(221): Collective\\Remote\\RemoteManager->__call('run', Array)
 #12 D:\\Programming\\PHP\\apsi\\app\\Services\\SSHService.php(67): Illuminate\\Support\\Facades\\Facade::__callStatic('run', Array)
 #13 D:\\Programming\\PHP\\apsi\\app\\Http\\Controllers\\FilesManagerController.php(19): App\\Services\\SSHService->ls_filemanager('/bantal')
@@ -4908,11 +4963,14 @@
 #53 D:\\Programming\\PHP\\apsi\\server.php(21): require_once('D:\\\\Programming\\\\...')
 #54 {main}
 "} 
-[2018-08-28 20:50:20] local.ERROR: Unable to connect to remote server. {"exception":"[object] (RuntimeException(code: 0): Unable to connect to remote server. at D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\emote\\src\\Connection.php:143)
+[2018-08-28 20:50:20] local.ERROR: Unable to connect to remote server. {"exception":"[object] (RuntimeException(code: 0): Unable to connect to remote server. at D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\
+emote\\src\\Connection.php:143)
 [stacktrace]
-#0 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\emote\\src\\Connection.php(115): Collective\\Remote\\Connection->getGateway()
+#0 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\
+emote\\src\\Connection.php(115): Collective\\Remote\\Connection->getGateway()
 #1 [internal function]: Collective\\Remote\\Connection->run(Array, Object(Closure))
-#2 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\emote\\src\\RemoteManager.php(219): call_user_func_array(Array, Array)
+#2 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\
+emote\\src\\RemoteManager.php(219): call_user_func_array(Array, Array)
 #3 D:\\Programming\\PHP\\apsi\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(221): Collective\\Remote\\RemoteManager->__call('run', Array)
 #4 D:\\Programming\\PHP\\apsi\\app\\Services\\SSHService.php(86): Illuminate\\Support\\Facades\\Facade::__callStatic('run', Array)
 #5 D:\\Programming\\PHP\\apsi\\app\\Http\\Controllers\\FilesManagerController.php(110): App\\Services\\SSHService->run()
@@ -4973,11 +5031,14 @@
 #60 D:\\Programming\\PHP\\apsi\\server.php(21): require_once('D:\\\\Programming\\\\...')
 #61 {main}
 "} 
-[2018-08-28 20:50:32] local.ERROR: Unable to connect to remote server. {"exception":"[object] (RuntimeException(code: 0): Unable to connect to remote server. at D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\emote\\src\\Connection.php:143)
+[2018-08-28 20:50:32] local.ERROR: Unable to connect to remote server. {"exception":"[object] (RuntimeException(code: 0): Unable to connect to remote server. at D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\
+emote\\src\\Connection.php:143)
 [stacktrace]
-#0 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\emote\\src\\Connection.php(115): Collective\\Remote\\Connection->getGateway()
+#0 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\
+emote\\src\\Connection.php(115): Collective\\Remote\\Connection->getGateway()
 #1 [internal function]: Collective\\Remote\\Connection->run(Array, Object(Closure))
-#2 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\emote\\src\\RemoteManager.php(219): call_user_func_array(Array, Array)
+#2 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\
+emote\\src\\RemoteManager.php(219): call_user_func_array(Array, Array)
 #3 D:\\Programming\\PHP\\apsi\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(221): Collective\\Remote\\RemoteManager->__call('run', Array)
 #4 D:\\Programming\\PHP\\apsi\\app\\Services\\SSHService.php(86): Illuminate\\Support\\Facades\\Facade::__callStatic('run', Array)
 #5 D:\\Programming\\PHP\\apsi\\app\\Http\\Controllers\\FilesManagerController.php(110): App\\Services\\SSHService->run()
@@ -6748,11 +6809,15 @@
 #3 D:\\Programming\\PHP\\apsi\\vendor\\phpseclib\\phpseclib\\phpseclib\\Net\\SSH2.php(2114): phpseclib\\Net\\SSH2->_connect()
 #4 [internal function]: phpseclib\\Net\\SSH2->_login('erick', 'aA!12345')
 #5 D:\\Programming\\PHP\\apsi\\vendor\\phpseclib\\phpseclib\\phpseclib\\Net\\SFTP.php(404): call_user_func_array(Array, Array)
-#6 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\emote\\src\\SecLibGateway.php(98): phpseclib\\Net\\SFTP->login('erick', 'aA!12345')
-#7 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\emote\\src\\Connection.php(142): Collective\\Remote\\SecLibGateway->connect('erick')
-#8 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\emote\\src\\Connection.php(115): Collective\\Remote\\Connection->getGateway()
+#6 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\
+emote\\src\\SecLibGateway.php(98): phpseclib\\Net\\SFTP->login('erick', 'aA!12345')
+#7 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\
+emote\\src\\Connection.php(142): Collective\\Remote\\SecLibGateway->connect('erick')
+#8 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\
+emote\\src\\Connection.php(115): Collective\\Remote\\Connection->getGateway()
 #9 [internal function]: Collective\\Remote\\Connection->run(Array, Object(Closure))
-#10 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\emote\\src\\RemoteManager.php(219): call_user_func_array(Array, Array)
+#10 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\
+emote\\src\\RemoteManager.php(219): call_user_func_array(Array, Array)
 #11 D:\\Programming\\PHP\\apsi\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(221): Collective\\Remote\\RemoteManager->__call('run', Array)
 #12 D:\\Programming\\PHP\\apsi\\app\\Services\\SSHService.php(67): Illuminate\\Support\\Facades\\Facade::__callStatic('run', Array)
 #13 D:\\Programming\\PHP\\apsi\\app\\Http\\Controllers\\FilesManagerController.php(19): App\\Services\\SSHService->ls_filemanager('/bantal')
@@ -6878,11 +6943,15 @@
 #2 D:\\Programming\\PHP\\apsi\\vendor\\phpseclib\\phpseclib\\phpseclib\\Net\\SSH2.php(2114): phpseclib\\Net\\SSH2->_connect()
 #3 [internal function]: phpseclib\\Net\\SSH2->_login('erick', 'aA!12345')
 #4 D:\\Programming\\PHP\\apsi\\vendor\\phpseclib\\phpseclib\\phpseclib\\Net\\SFTP.php(404): call_user_func_array(Array, Array)
-#5 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\emote\\src\\SecLibGateway.php(98): phpseclib\\Net\\SFTP->login('erick', 'aA!12345')
-#6 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\emote\\src\\Connection.php(142): Collective\\Remote\\SecLibGateway->connect('erick')
-#7 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\emote\\src\\Connection.php(115): Collective\\Remote\\Connection->getGateway()
+#5 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\
+emote\\src\\SecLibGateway.php(98): phpseclib\\Net\\SFTP->login('erick', 'aA!12345')
+#6 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\
+emote\\src\\Connection.php(142): Collective\\Remote\\SecLibGateway->connect('erick')
+#7 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\
+emote\\src\\Connection.php(115): Collective\\Remote\\Connection->getGateway()
 #8 [internal function]: Collective\\Remote\\Connection->run(Array, Object(Closure))
-#9 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\emote\\src\\RemoteManager.php(219): call_user_func_array(Array, Array)
+#9 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\
+emote\\src\\RemoteManager.php(219): call_user_func_array(Array, Array)
 #10 D:\\Programming\\PHP\\apsi\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(221): Collective\\Remote\\RemoteManager->__call('run', Array)
 #11 D:\\Programming\\PHP\\apsi\\app\\Services\\SSHService.php(67): Illuminate\\Support\\Facades\\Facade::__callStatic('run', Array)
 #12 D:\\Programming\\PHP\\apsi\\app\\Http\\Controllers\\FilesManagerController.php(19): App\\Services\\SSHService->ls_filemanager('/bantal')
@@ -7059,11 +7128,14 @@
 #53 D:\\Programming\\PHP\\apsi\\server.php(21): require_once('D:\\\\Programming\\\\...')
 #54 {main}
 "} 
-[2018-08-29 08:44:39] local.ERROR: Unable to connect to remote server. {"exception":"[object] (RuntimeException(code: 0): Unable to connect to remote server. at D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\emote\\src\\Connection.php:143)
+[2018-08-29 08:44:39] local.ERROR: Unable to connect to remote server. {"exception":"[object] (RuntimeException(code: 0): Unable to connect to remote server. at D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\
+emote\\src\\Connection.php:143)
 [stacktrace]
-#0 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\emote\\src\\Connection.php(115): Collective\\Remote\\Connection->getGateway()
+#0 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\
+emote\\src\\Connection.php(115): Collective\\Remote\\Connection->getGateway()
 #1 [internal function]: Collective\\Remote\\Connection->run(Array, Object(Closure))
-#2 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\emote\\src\\RemoteManager.php(219): call_user_func_array(Array, Array)
+#2 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\
+emote\\src\\RemoteManager.php(219): call_user_func_array(Array, Array)
 #3 D:\\Programming\\PHP\\apsi\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(221): Collective\\Remote\\RemoteManager->__call('run', Array)
 #4 D:\\Programming\\PHP\\apsi\\app\\Services\\SSHService.php(67): Illuminate\\Support\\Facades\\Facade::__callStatic('run', Array)
 #5 D:\\Programming\\PHP\\apsi\\app\\Http\\Controllers\\FilesManagerController.php(19): App\\Services\\SSHService->ls_filemanager('/')
@@ -7259,7 +7331,8 @@
 #10 D:\\Programming\\PHP\\apsi\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\SessionGuard.php(131): Illuminate\\Auth\\EloquentUserProvider->retrieveById(1)
 #11 D:\\Programming\\PHP\\apsi\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\GuardHelpers.php(60): Illuminate\\Auth\\SessionGuard->user()
 #12 D:\\Programming\\PHP\\apsi\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\AuthManager.php(292): Illuminate\\Auth\\SessionGuard->check()
-#13 D:\\Programming\\PHP\\apsi\outes\\web.php(15): Illuminate\\Auth\\AuthManager->__call('check', Array)
+#13 D:\\Programming\\PHP\\apsi\
+outes\\web.php(15): Illuminate\\Auth\\AuthManager->__call('check', Array)
 #14 D:\\Programming\\PHP\\apsi\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(198): Illuminate\\Routing\\Router->{closure}()
 #15 D:\\Programming\\PHP\\apsi\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(172): Illuminate\\Routing\\Route->runCallable()
 #16 D:\\Programming\\PHP\\apsi\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(665): Illuminate\\Routing\\Route->run()
@@ -7565,11 +7638,14 @@
 #39 D:\\Programming\\PHP\\apsi\\server.php(21): require_once('D:\\\\Programming\\\\...')
 #40 {main}
 "} 
-[2018-08-29 18:40:47] local.ERROR: Unable to connect to remote server. {"userId":1,"email":"gamer.fikri@gmail.com","exception":"[object] (RuntimeException(code: 0): Unable to connect to remote server. at D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\emote\\src\\Connection.php:143)
+[2018-08-29 18:40:47] local.ERROR: Unable to connect to remote server. {"userId":1,"email":"gamer.fikri@gmail.com","exception":"[object] (RuntimeException(code: 0): Unable to connect to remote server. at D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\
+emote\\src\\Connection.php:143)
 [stacktrace]
-#0 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\emote\\src\\Connection.php(115): Collective\\Remote\\Connection->getGateway()
+#0 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\
+emote\\src\\Connection.php(115): Collective\\Remote\\Connection->getGateway()
 #1 [internal function]: Collective\\Remote\\Connection->run(Array, Object(Closure))
-#2 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\emote\\src\\RemoteManager.php(219): call_user_func_array(Array, Array)
+#2 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\
+emote\\src\\RemoteManager.php(219): call_user_func_array(Array, Array)
 #3 D:\\Programming\\PHP\\apsi\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(223): Collective\\Remote\\RemoteManager->__call('run', Array)
 #4 D:\\Programming\\PHP\\apsi\\app\\Services\\SSHService.php(67): Illuminate\\Support\\Facades\\Facade::__callStatic('run', Array)
 #5 D:\\Programming\\PHP\\apsi\\app\\Http\\Controllers\\FilesManagerController.php(20): App\\Services\\SSHService->ls_filemanager('/input')
@@ -8118,11 +8194,14 @@
 #58 D:\\Programming\\PHP\\apsi\\server.php(21): require_once('D:\\\\Programming\\\\...')
 #59 {main}
 "} 
-[2018-08-29 21:52:08] local.ERROR: Unable to connect to remote server. {"userId":1,"email":"gamer.fikri@gmail.com","exception":"[object] (RuntimeException(code: 0): Unable to connect to remote server. at D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\emote\\src\\Connection.php:143)
+[2018-08-29 21:52:08] local.ERROR: Unable to connect to remote server. {"userId":1,"email":"gamer.fikri@gmail.com","exception":"[object] (RuntimeException(code: 0): Unable to connect to remote server. at D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\
+emote\\src\\Connection.php:143)
 [stacktrace]
-#0 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\emote\\src\\Connection.php(115): Collective\\Remote\\Connection->getGateway()
+#0 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\
+emote\\src\\Connection.php(115): Collective\\Remote\\Connection->getGateway()
 #1 [internal function]: Collective\\Remote\\Connection->run(Array, Object(Closure))
-#2 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\emote\\src\\RemoteManager.php(219): call_user_func_array(Array, Array)
+#2 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\
+emote\\src\\RemoteManager.php(219): call_user_func_array(Array, Array)
 #3 D:\\Programming\\PHP\\apsi\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(223): Collective\\Remote\\RemoteManager->__call('run', Array)
 #4 D:\\Programming\\PHP\\apsi\\app\\Services\\SSHService.php(67): Illuminate\\Support\\Facades\\Facade::__callStatic('run', Array)
 #5 D:\\Programming\\PHP\\apsi\\app\\Http\\Controllers\\FilesManagerController.php(20): App\\Services\\SSHService->ls_filemanager('/output')
@@ -8186,11 +8265,14 @@
 #63 D:\\Programming\\PHP\\apsi\\server.php(21): require_once('D:\\\\Programming\\\\...')
 #64 {main}
 "} 
-[2018-08-29 22:49:54] local.ERROR: Unable to connect to remote server. {"userId":1,"email":"gamer.fikri@gmail.com","exception":"[object] (RuntimeException(code: 0): Unable to connect to remote server. at D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\emote\\src\\Connection.php:143)
+[2018-08-29 22:49:54] local.ERROR: Unable to connect to remote server. {"userId":1,"email":"gamer.fikri@gmail.com","exception":"[object] (RuntimeException(code: 0): Unable to connect to remote server. at D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\
+emote\\src\\Connection.php:143)
 [stacktrace]
-#0 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\emote\\src\\Connection.php(115): Collective\\Remote\\Connection->getGateway()
+#0 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\
+emote\\src\\Connection.php(115): Collective\\Remote\\Connection->getGateway()
 #1 [internal function]: Collective\\Remote\\Connection->run(Array, Object(Closure))
-#2 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\emote\\src\\RemoteManager.php(219): call_user_func_array(Array, Array)
+#2 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\
+emote\\src\\RemoteManager.php(219): call_user_func_array(Array, Array)
 #3 D:\\Programming\\PHP\\apsi\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(223): Collective\\Remote\\RemoteManager->__call('run', Array)
 #4 D:\\Programming\\PHP\\apsi\\app\\Services\\SSHService.php(85): Illuminate\\Support\\Facades\\Facade::__callStatic('run', Array)
 #5 D:\\Programming\\PHP\\apsi\\app\\Http\\Controllers\\FilesManagerController.php(148): App\\Services\\SSHService->run()
@@ -8388,11 +8470,15 @@
 #3 D:\\Programming\\PHP\\apsi\\vendor\\phpseclib\\phpseclib\\phpseclib\\Net\\SSH2.php(2114): phpseclib\\Net\\SSH2->_connect()
 #4 [internal function]: phpseclib\\Net\\SSH2->_login('erick', 'aA!12345')
 #5 D:\\Programming\\PHP\\apsi\\vendor\\phpseclib\\phpseclib\\phpseclib\\Net\\SFTP.php(404): call_user_func_array(Array, Array)
-#6 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\emote\\src\\SecLibGateway.php(98): phpseclib\\Net\\SFTP->login('erick', 'aA!12345')
-#7 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\emote\\src\\Connection.php(142): Collective\\Remote\\SecLibGateway->connect('erick')
-#8 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\emote\\src\\Connection.php(115): Collective\\Remote\\Connection->getGateway()
+#6 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\
+emote\\src\\SecLibGateway.php(98): phpseclib\\Net\\SFTP->login('erick', 'aA!12345')
+#7 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\
+emote\\src\\Connection.php(142): Collective\\Remote\\SecLibGateway->connect('erick')
+#8 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\
+emote\\src\\Connection.php(115): Collective\\Remote\\Connection->getGateway()
 #9 [internal function]: Collective\\Remote\\Connection->run(Array, Object(Closure))
-#10 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\emote\\src\\RemoteManager.php(219): call_user_func_array(Array, Array)
+#10 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\
+emote\\src\\RemoteManager.php(219): call_user_func_array(Array, Array)
 #11 D:\\Programming\\PHP\\apsi\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(223): Collective\\Remote\\RemoteManager->__call('run', Array)
 #12 D:\\Programming\\PHP\\apsi\\app\\Services\\SSHService.php(67): Illuminate\\Support\\Facades\\Facade::__callStatic('run', Array)
 #13 D:\\Programming\\PHP\\apsi\\app\\Http\\Controllers\\FilesManagerController.php(20): App\\Services\\SSHService->ls_filemanager('/output')
@@ -8456,11 +8542,14 @@
 #71 D:\\Programming\\PHP\\apsi\\server.php(21): require_once('D:\\\\Programming\\\\...')
 #72 {main}
 "} 
-[2018-08-30 00:44:38] local.ERROR: Unable to connect to remote server. {"userId":1,"email":"gamer.fikri@gmail.com","exception":"[object] (RuntimeException(code: 0): Unable to connect to remote server. at D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\emote\\src\\Connection.php:143)
+[2018-08-30 00:44:38] local.ERROR: Unable to connect to remote server. {"userId":1,"email":"gamer.fikri@gmail.com","exception":"[object] (RuntimeException(code: 0): Unable to connect to remote server. at D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\
+emote\\src\\Connection.php:143)
 [stacktrace]
-#0 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\emote\\src\\Connection.php(115): Collective\\Remote\\Connection->getGateway()
+#0 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\
+emote\\src\\Connection.php(115): Collective\\Remote\\Connection->getGateway()
 #1 [internal function]: Collective\\Remote\\Connection->run(Array, Object(Closure))
-#2 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\emote\\src\\RemoteManager.php(219): call_user_func_array(Array, Array)
+#2 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\
+emote\\src\\RemoteManager.php(219): call_user_func_array(Array, Array)
 #3 D:\\Programming\\PHP\\apsi\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(223): Collective\\Remote\\RemoteManager->__call('run', Array)
 #4 D:\\Programming\\PHP\\apsi\\app\\Services\\SSHService.php(67): Illuminate\\Support\\Facades\\Facade::__callStatic('run', Array)
 #5 D:\\Programming\\PHP\\apsi\\app\\Http\\Controllers\\FilesManagerController.php(20): App\\Services\\SSHService->ls_filemanager('/')
@@ -8524,11 +8613,14 @@
 #63 D:\\Programming\\PHP\\apsi\\server.php(21): require_once('D:\\\\Programming\\\\...')
 #64 {main}
 "} 
-[2018-08-30 00:45:34] local.ERROR: Unable to connect to remote server. {"userId":1,"email":"gamer.fikri@gmail.com","exception":"[object] (RuntimeException(code: 0): Unable to connect to remote server. at D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\emote\\src\\Connection.php:143)
+[2018-08-30 00:45:34] local.ERROR: Unable to connect to remote server. {"userId":1,"email":"gamer.fikri@gmail.com","exception":"[object] (RuntimeException(code: 0): Unable to connect to remote server. at D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\
+emote\\src\\Connection.php:143)
 [stacktrace]
-#0 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\emote\\src\\Connection.php(115): Collective\\Remote\\Connection->getGateway()
+#0 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\
+emote\\src\\Connection.php(115): Collective\\Remote\\Connection->getGateway()
 #1 [internal function]: Collective\\Remote\\Connection->run(Array, Object(Closure))
-#2 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\emote\\src\\RemoteManager.php(219): call_user_func_array(Array, Array)
+#2 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\
+emote\\src\\RemoteManager.php(219): call_user_func_array(Array, Array)
 #3 D:\\Programming\\PHP\\apsi\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(223): Collective\\Remote\\RemoteManager->__call('run', Array)
 #4 D:\\Programming\\PHP\\apsi\\app\\Services\\SSHService.php(67): Illuminate\\Support\\Facades\\Facade::__callStatic('run', Array)
 #5 D:\\Programming\\PHP\\apsi\\app\\Http\\Controllers\\FilesManagerController.php(20): App\\Services\\SSHService->ls_filemanager('/')
@@ -8592,11 +8684,14 @@
 #63 D:\\Programming\\PHP\\apsi\\server.php(21): require_once('D:\\\\Programming\\\\...')
 #64 {main}
 "} 
-[2018-08-30 00:51:50] local.ERROR: Unable to connect to remote server. {"userId":1,"email":"gamer.fikri@gmail.com","exception":"[object] (RuntimeException(code: 0): Unable to connect to remote server. at D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\emote\\src\\Connection.php:143)
+[2018-08-30 00:51:50] local.ERROR: Unable to connect to remote server. {"userId":1,"email":"gamer.fikri@gmail.com","exception":"[object] (RuntimeException(code: 0): Unable to connect to remote server. at D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\
+emote\\src\\Connection.php:143)
 [stacktrace]
-#0 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\emote\\src\\Connection.php(115): Collective\\Remote\\Connection->getGateway()
+#0 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\
+emote\\src\\Connection.php(115): Collective\\Remote\\Connection->getGateway()
 #1 [internal function]: Collective\\Remote\\Connection->run(Array, Object(Closure))
-#2 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\emote\\src\\RemoteManager.php(219): call_user_func_array(Array, Array)
+#2 D:\\Programming\\PHP\\apsi\\vendor\\laravelcollective\
+emote\\src\\RemoteManager.php(219): call_user_func_array(Array, Array)
 #3 D:\\Programming\\PHP\\apsi\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(223): Collective\\Remote\\RemoteManager->__call('run', Array)
 #4 D:\\Programming\\PHP\\apsi\\app\\Services\\SSHService.php(67): Illuminate\\Support\\Facades\\Facade::__callStatic('run', Array)
 #5 D:\\Programming\\PHP\\apsi\\app\\Http\\Controllers\\FilesManagerController.php(20): App\\Services\\SSHService->ls_filemanager('/')
