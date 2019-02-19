@@ -18,6 +18,7 @@ return array(
     'App\\Http\\Controllers\\FilesManagerController' => $baseDir . '/app/Http/Controllers/FilesManagerController.php',
     'App\\Http\\Controllers\\HomeController' => $baseDir . '/app/Http/Controllers/HomeController.php',
     'App\\Http\\Controllers\\JobsController' => $baseDir . '/app/Http/Controllers/JobsController.php',
+    'App\\Http\\Controllers\\LogsController' => $baseDir . '/app/Http/Controllers/LogsController.php',
     'App\\Http\\Controllers\\OutputController' => $baseDir . '/app/Http/Controllers/OutputController.php',
     'App\\Http\\Controllers\\PNG2CVTController' => $baseDir . '/app/Http/Controllers/PNG2CVTController.php',
     'App\\Http\\Controllers\\SimulationsController' => $baseDir . '/app/Http/Controllers/SimulationsController.php',

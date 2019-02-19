@@ -60,12 +60,15 @@
                                 <form id="form-delete" action="{{ route('workspaces.jobs.delete', [$workspace->id, $job->key]) }}" method="POST" style="display: inline;">
                                     {{ csrf_field() }}
                                     @method('DELETE')
-                                    <a href="javascript:{}" onclick="document.getElementById('form-delete').submit();"><i class="material-icons" id="tt1">highlight_off</i></a>
+                                    <a href="javascript:{}" data-toggle="tooltip" data-placement="top" title="Delete" onclick="document.getElementById('form-delete').submit();"><i class="material-icons" id="tt1">highlight_off</i></a>
                                     {{-- <button type="submit"><i class="material-icons" id="tt1">highlight_off</i></button> --}}
                                 </form>
-                                <a href="{{ route('workspaces.jobs.edit', [$workspace->id, $job->key]) }}"><i class="material-icons">create</i></a>
-                                <a href=""><i class="material-icons">error_outline</i></a>
-                                <a href="{{ route('workspaces.jobs.run', [$workspace->id, $job->key]) }}" data-toggle="tooltip" data-placement="top" title="Run"><i class="material-icons">play_circle_outline</i></a>
+                                <a href="{{ route('workspaces.jobs.edit', [$workspace->id, $job->key]) }}" data-toggle="tooltip" data-placement="top" title="Edit"><i class="material-icons">create</i></a>
+                                <a href="" data-toggle="tooltip" data-placement="top" title="Log"><i class="material-icons">error_outline</i></a>
+                                {{-- <a href="" data-toggle="tooltip" data-placement="top" title="Run"><i class="material-icons">play_circle_outline</i></a> --}}
+                                <span data-toggle="tooltip" data-placement="top" title="Run">
+                                    <a class="toggle-the-modal" data-job-key="{{ $job->key }}" data-workspace="" data-toggle="modal" data-target="#myModal" title="Run" style="cursor: pointer;"><i class="material-icons">play_circle_outline</i></a>
+                                </span>
                             </td>
                         </tr>
                             @endforeach
@@ -74,6 +77,66 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div id="myModal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title"> Run ! -bashFile</h4>
+          </div>
+          <form method="GET" action="" class="form-horizontal">
+              
+              <div class="modal-body">
+                <div class="form-group">
+                    <label class="col-sm-4 control-label" for="sel1">Nama Partisi</label>
+                    <div class="col-sm-8">
+                      <select name="partition" class="form-control" id="sel1">
+                        <option value="zw">zwoelfkerne</option>
+                        <option value="sun" >sun</option>
+                      </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label" for="sel2">Jumlah Node</label>
+                    <div class="col-sm-8">
+                      <select name="total_node" class="form-control" id="sel2">
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="8">8</option>
+                        <option value="16">16</option>
+                      </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">Nama Job</label>
+                    <div class="col-sm-8">
+                      <input class="form-control" id="nama-job" type="text" value="nama-job" disabled>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">Email</label>
+                    <div class="col-sm-8">
+                      <input class="form-control" id="nama-email" type="text" name="email" placeholder="Alamat email...">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">Error log file path</label>
+                    <div class="col-sm-8">
+                      <input class="form-control" id="error-log" type="text" name="error_log_path" placeholder="Error log path..." disabled>
+                    </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <input type="submit" class="btn btn-primary" value="Run">
+              </div>
+          </form>
+        </div>
+
+      </div>
     </div>
 @endsection
 
@@ -114,6 +177,11 @@
                     options: options
                 }))
             })
+        })
+    </script>
+    <script>
+        $(function () {
+          $('[data-toggle="tooltip"]').tooltip()
         })
     </script>
 @endpush
