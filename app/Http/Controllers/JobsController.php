@@ -76,7 +76,7 @@ class JobsController extends Controller
                 'user_id'       => auth()->user()->id,
                 'simulation_id' => 1,
                 'name'          => request('title'),
-                'status'        => 'running',
+                'status'        => 'draft',
                 'key'           => $key,
             ]);
 
@@ -107,9 +107,8 @@ class JobsController extends Controller
 
 
     /* Update Block */
-    public function edit(Workspace $workspace, $key)
+    public function edit(Workspace $workspace, Job $job)
     {
-        $job = Job::where('key', $key)->firstOrFail();
         return view('jobs.update')->with([
             'job' => $job,
             'workspace' => $workspace
@@ -185,7 +184,7 @@ class JobsController extends Controller
 
 
     /* Other Block */
-    public function run(Workspace $workspace, $job)
+    public function run(Workspace $workspace, Job php$job)
     {
         // buat folder baru
         // masukan output folder baru tersebut, jangan lupa log nya
@@ -284,6 +283,22 @@ class JobsController extends Controller
             'slug'     => $slug,
             'params'   => implode(PHP_EOL, $parametersText),
             'workspace' => $workspace
+        ]);
+    }
+
+    public function log(Workspace $workspace, Job $job)
+    {
+        $squeueResult = (new SSHService("/$workspace->key"))
+            ->commands("squeue")
+            ->run();
+        $errorLogResult = (new SSHService("/$workspace->key"))
+            ->commands("cd $job->key")
+            ->commands("cat log.lammps")
+            ->run();
+
+        return view('log.index')->with([
+            'squeueResult'      => $squeueResult,
+            'errorLogResult'    => $errorLogResult
         ]);
     }
     /* End Other Block */

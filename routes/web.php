@@ -50,10 +50,11 @@ Route::group([
         Route::put('workspaces/{workspace}/jobs/{job}/update', 'JobsController@update')->name('workspaces.jobs.update');
     }
 
-    // Job Delete, Job Run
+    // Job Delete, Job Run, Job Log
     {
         Route::delete('workspaces/{workspace}/jobs/{job}/delete', 'JobsController@deleteJob')->name('workspaces.jobs.delete');
         Route::get('workspaces/{workspace}/jobs/{job}/run', 'JobsController@run')->name('workspaces.jobs.run');
+        Route::get('workspaces/{workspace}/jobs/{job}/log', 'JobsController@log')->name('workspaces.jobs.log');
     }
 
     Route::get('workspaces/{workspace}/files/image', 'FilesController@image')->name('workspaces.files.image');

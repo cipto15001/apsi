@@ -60,8 +60,8 @@
                                 {{ csrf_field() }}
                                 <a class="delete-job" data-workspace="{{ $workspace->id }}" data-job="{{ $job->id }}" href="#" data-toggle="tooltip" data-placement="top" title="Delete"><i class="material-icons" id="tt1">highlight_off</i></a>
                                 {{-- <button type="submit"><i class="material-icons" id="tt1">highlight_off</i></button> --}}
-                                <a href="{{ route('workspaces.jobs.edit', [$workspace->id, $job->key]) }}" data-toggle="tooltip" data-placement="top" title="Edit"><i class="material-icons">create</i></a>
-                                <a href="" data-toggle="tooltip" data-placement="top" title="Log"><i class="material-icons">error_outline</i></a>
+                                <a href="{{ route('workspaces.jobs.edit', [$workspace, $job]) }}" data-toggle="tooltip" data-placement="top" title="Edit"><i class="material-icons">create</i></a>
+                                <a href="{{ route('workspaces.jobs.log', [$workspace, $job]) }}" data-toggle="tooltip" data-placement="top" title="Log"><i class="material-icons">error_outline</i></a>
                                 {{-- <a href="" data-toggle="tooltip" data-placement="top" title="Run"><i class="material-icons">play_circle_outline</i></a> --}}
                                 <span data-toggle="tooltip" data-placement="top" title="Run">
                                     <a class="toggle-the-modal" data-job-key="{{ $job->key }}" data-workspace="" data-toggle="modal" data-target="#myModal" title="Run" style="cursor: pointer;"><i class="material-icons">play_circle_outline</i></a>
