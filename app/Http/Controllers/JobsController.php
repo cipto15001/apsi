@@ -184,7 +184,7 @@ class JobsController extends Controller
 
 
     /* Other Block */
-    public function run(Workspace $workspace, Job php$job)
+    public function run(Workspace $workspace, Job $job)
     {
         // buat folder baru
         // masukan output folder baru tersebut, jangan lupa log nya
