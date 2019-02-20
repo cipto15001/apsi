@@ -35,15 +35,26 @@ Route::group([
 
     Route::get('workspaces/{workspace}/output', 'OutputController@index')->name('workspaces.output.index');
 
-    Route::get('workspaces/{workspace}/jobs', 'JobsController@index')->name('workspaces.jobs.index');
-    Route::get('workspaces/{workspace}/jobs/new', 'JobsController@createEmpty')->name('workspaces.jobs.create_empty');
-    Route::get('workspaces/{workspace}/jobs/{key}/edit', 'JobsController@edit')->name('workspaces.jobs.edit');
-    Route::delete('workspaces/{workspace}/jobs/{key}/delete', 'JobsController@deleteJob')->name('workspaces.jobs.delete');
-    Route::get('workspaces/{workspace}/jobs/{key}/run', 'JobsController@run')->name('workspaces.jobs.run');
-    Route::put('workspaces/{workspace}/jobs/{key}/update', 'JobsController@update')->name('workspaces.jobs.update');
-    Route::get('workspaces/{workspace}/jobs/new/{slug}', 'JobsController@editTemplate')->name('workspaces.jobs.edit_template');
-    Route::get('workspaces/{workspace}/jobs/new/{slug}/gui', 'JobsController@create')->name('workspaces.jobs.create_gui');
-    Route::post('workspace/{workspace}/jobs', 'JobsController@store')->name('workspaces.jobs.store');
+    // Job Create
+    {
+        Route::get('workspaces/{workspace}/jobs', 'JobsController@index')->name('workspaces.jobs.index');
+        Route::get('workspaces/{workspace}/jobs/new', 'JobsController@createEmpty')->name('workspaces.jobs.create_empty');
+        Route::get('workspaces/{workspace}/jobs/new/{slug}', 'JobsController@editTemplate')->name('workspaces.jobs.edit_template');
+        Route::get('workspaces/{workspace}/jobs/new/{slug}/gui', 'JobsController@create')->name('workspaces.jobs.create_gui');
+        Route::post('workspace/{workspace}/jobs', 'JobsController@store')->name('workspaces.jobs.store');
+    }
+    
+    // Job Update
+    {
+        Route::get('workspaces/{workspace}/jobs/{job}/edit', 'JobsController@edit')->name('workspaces.jobs.edit');
+        Route::put('workspaces/{workspace}/jobs/{job}/update', 'JobsController@update')->name('workspaces.jobs.update');
+    }
+
+    // Job Delete, Job Run
+    {
+        Route::delete('workspaces/{workspace}/jobs/{job}/delete', 'JobsController@deleteJob')->name('workspaces.jobs.delete');
+        Route::get('workspaces/{workspace}/jobs/{job}/run', 'JobsController@run')->name('workspaces.jobs.run');
+    }
 
     Route::get('workspaces/{workspace}/files/image', 'FilesController@image')->name('workspaces.files.image');
     Route::get('workspaces/{workspace}/files/video', 'FilesController@video')->name('workspaces.files.video');

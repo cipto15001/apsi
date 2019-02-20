@@ -57,12 +57,9 @@
                                 {{--@endif--}}
                             {{--</td>--}}
                             <td>
-                                <form id="form-delete" action="{{ route('workspaces.jobs.delete', [$workspace->id, $job->key]) }}" method="POST" style="display: inline;">
-                                    {{ csrf_field() }}
-                                    @method('DELETE')
-                                    <a href="javascript:{}" data-toggle="tooltip" data-placement="top" title="Delete" onclick="document.getElementById('form-delete').submit();"><i class="material-icons" id="tt1">highlight_off</i></a>
-                                    {{-- <button type="submit"><i class="material-icons" id="tt1">highlight_off</i></button> --}}
-                                </form>
+                                {{ csrf_field() }}
+                                <a class="delete-job" data-workspace="{{ $workspace->id }}" data-job="{{ $job->id }}" href="#" data-toggle="tooltip" data-placement="top" title="Delete"><i class="material-icons" id="tt1">highlight_off</i></a>
+                                {{-- <button type="submit"><i class="material-icons" id="tt1">highlight_off</i></button> --}}
                                 <a href="{{ route('workspaces.jobs.edit', [$workspace->id, $job->key]) }}" data-toggle="tooltip" data-placement="top" title="Edit"><i class="material-icons">create</i></a>
                                 <a href="" data-toggle="tooltip" data-placement="top" title="Log"><i class="material-icons">error_outline</i></a>
                                 {{-- <a href="" data-toggle="tooltip" data-placement="top" title="Run"><i class="material-icons">play_circle_outline</i></a> --}}
@@ -182,6 +179,36 @@
     <script>
         $(function () {
           $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+    <script>
+        $(document).ready(function() {
+            $('.delete-job').click(function() {
+                let result = confirm("Apakah Anda yakin ingin menghapus job ini?")
+                if (result) {
+                    let _token = $("input[name='_token']").val()
+                    let workspace = $(this).attr('data-workspace')
+                    let job = $(this).attr('data-job')
+                    let baseUrl = 'http://127.0.0.1:8000'
+
+                    console.log("Token " + _token + " workspace " + workspace + " job " + job)
+
+                    $.ajax({
+                        type: 'DELETE',
+                        url: baseUrl + "/workspaces/" + workspace + '/jobs/' + job + '/delete',
+                        data: {
+                            _token: _token
+                        },
+                        dataType: 'json',
+                        success: function(data) {
+                            window.location.reload()
+                        },                  
+                        error: function(error) {
+                            alert("An error occured: " + error)
+                        }      
+                    })
+                }
+            })
         })
     </script>
 @endpush

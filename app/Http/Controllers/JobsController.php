@@ -12,6 +12,7 @@ use SSH;
 
 class JobsController extends Controller
 {
+    /* Create Block */
     public function index(Workspace $workspace)
     {
         $workspace->load('jobs');
@@ -28,15 +29,6 @@ class JobsController extends Controller
         return view('jobs.edit')->with([
             'workspace'     => $workspace,
             'simulationSet' => $simulationSet,
-        ]);
-    }
-
-    public function show($key)
-    {
-        $job = Job::where('key', $key)->firstOrFail();
-
-        return view('jobs.show', [
-            'job' => $job,
         ]);
     }
 
@@ -59,6 +51,107 @@ class JobsController extends Controller
         ]);
     }
 
+    public function store(Workspace $workspace)
+    {
+        try {
+            $key = date('Y_m_d_h_i_s') . '_' . str_slug(request('title'), '_');
+            $latestJob = $workspace->jobs()->orderBy('job_number', 'DESC')->first();
+            $params = explode(PHP_EOL, request('input_script'));
+
+            $result = (new SSHService("/$workspace->key"))
+                ->commands("mkdir $key")
+                ->commands("cd $key")
+                ->commands("mkdir input")
+                ->commands("mkdir output")
+                ->commands("mkdir resources")
+                ->commands("mkdir rendered_images")
+                ->commands("mkdir rendered_video")
+                ->run();
+
+            DB::beginTransaction();
+
+            $workspace->jobs()->create([
+                'job_number'    => count($latestJob) == 0 ? 0 : $latestJob->job_number + 1,
+                'input_script'  => implode(PHP_EOL, $params),
+                'user_id'       => auth()->user()->id,
+                'simulation_id' => 1,
+                'name'          => request('title'),
+                'status'        => 'running',
+                'key'           => $key,
+            ]);
+
+            DB::commit();
+        } catch (\Exception $e) {
+            DB::rollback();
+            $result = (new SSHService("/$workspace->key"))
+                ->commands("rmdir $key")
+                ->run();
+            throw $e;
+        }
+
+        return redirect()->route('workspaces.jobs.index', $workspace);
+    }
+    /* End Create Block */  
+
+
+    /* Read Block */
+    public function show($key)
+    {
+        $job = Job::where('key', $key)->firstOrFail();
+
+        return view('jobs.show', [
+            'job' => $job,
+        ]);
+    }
+    /* End Read Block */
+
+
+    /* Update Block */
+    public function edit(Workspace $workspace, $key)
+    {
+        $job = Job::where('key', $key)->firstOrFail();
+        return view('jobs.update')->with([
+            'job' => $job,
+            'workspace' => $workspace
+        ]);
+    }
+
+    public function update(Workspace $workspace, Request $request, Job $job)
+    {
+        $jobKeyToArray = explode('_', $job->key);
+        $jobKeySliced = array_slice($jobKeyToArray, 0, 6);
+        $newJobTitle = explode(' ', strtolower($request->title));
+        $newJobKey = implode('_', array_merge($jobKeySliced, $newJobTitle));
+                
+        try {
+            $result = (new SSHService("/$workspace->key"))
+                ->commands("mv $job->key $newJobKey")
+                ->run();
+
+            DB::beginTransaction();
+
+            $job->update([
+                'name' => $request->title,
+                'key' => $newJobKey,
+                'input_script' => $request->input_script
+            ]);
+
+            DB::commit();
+
+            return redirect()->route('workspaces.jobs.index', $workspace);
+        } catch (\Exception $e) {
+            (new SSHService("/$workspace->key"))
+                ->commands("mv $newJobKey $job->key")
+                ->run();
+            
+            DB::rollback();
+            throw $e;
+        }
+    }
+    /* End Update Block */
+
+
+    /* Delete Block */
     public function destroy(Job $job)
     {
         $jobId = $job->job_number;
@@ -66,6 +159,100 @@ class JobsController extends Controller
         SSH::run([
             "scancel $jobId",
         ]);
+
+        return back();
+    }
+
+    public function deleteJob(Workspace $workspace, Job $job)
+    {
+        try {
+            DB::beginTransaction();        
+            $job->delete();
+            DB::commit();
+
+            $result = (new SSHService("/$workspace->key"))
+                ->commands("rm -rf $job->key")
+                ->run();
+
+        } catch (\Exception $e) {
+            DB::rollback();
+            throw $e;
+        }
+
+        return response()->json("OK");
+    }
+    /* End Delete Block */
+
+
+    /* Other Block */
+    public function run(Workspace $workspace, $job)
+    {
+        // buat folder baru
+        // masukan output folder baru tersebut, jangan lupa log nya
+        // Buat Jobs berdasarkan workspace
+
+        $runFile = 'in.run';
+        $bashFile = 'submit';
+        $key = date('Y_m_d_h_i_s') . '_' . str_slug(request('title'), '_');
+        $user = auth()->user();
+        
+        $command = (new SSHService("/$workspace->key"))
+            ->mkdir('output/' . $key)
+            ->cd('output/' . $key)
+            ->commands('touch ' . $runFile);
+
+        $params = explode(PHP_EOL, request('input_script'));
+
+        $availableReplace = [
+            ':job_key' => $key,
+        ];
+
+        $commands = [];
+        foreach ($params as $param) {
+            $param = str_replace('$', '\$', $param);
+            $param = str_replace(array_keys($availableReplace), array_values($availableReplace), $param);
+            $commands[] = "echo \"$param\" >> $runFile";
+        }
+
+        $command
+            ->commands($commands)
+            ->cd('..')
+            ->cd('..')
+            ->commands("salloc -n 8 mpirun ../lmp_sph -in output/" . $key . "/in.run &> /dev/null &")
+            ->run();
+            // ->commands("touch $bashFile")
+            // ->commands("echo '#!/bin/bash' >> $bashFile")
+            // ->commands("echo '#SBATCH -p zwoelfkerne' >> $bashFile")
+            // ->commands("echo '#SBATCH -n 8' >> $bashFile")
+            // ->commands("echo '#SBATCH --job-name=apsi_" . date('YmdHis') . '_' . $user->id . "' >> $bashFile")
+            // ->commands("echo 'mpirun ../../../lmp_sph -in {$runFile}' >> $bashFile")
+            // ->run();
+    }
+
+    public function refresh($key)
+    {
+        $job = Job::where('key', $key)->firstOrFail();
+
+        $commands = [];
+        $commands[] = 'cd apsi; cd ' . $job->key;
+
+        $out = [];
+        SSH::run(array_merge($commands, [
+            "cat slurm-{$job->job_number}.out",
+        ]), function ($line) use (&$out) {
+            $out[] = $line;
+        });
+
+        $log = [];
+        SSH::run(array_merge($commands, [
+            'cat log.lammps',
+        ]), function ($line) use (&$log) {
+            $log[] = $line;
+        });
+
+        $job->out = implode(PHP_EOL, $out);
+        $job->log = implode(PHP_EOL, $log);
+        $job->save();
 
         return back();
     }
@@ -99,222 +286,5 @@ class JobsController extends Controller
             'workspace' => $workspace
         ]);
     }
-
-    public function store(Workspace $workspace)
-    {
-        $params = explode(PHP_EOL, request('input_script'));
-        $latestJob = DB::table('jobs')->orderBy('created_at', 'desc')->first();
-        $key = date('Y_m_d_h_i_s') . '_' . str_slug(request('title'), '_');
-
-        try {
-            DB::beginTransaction();
-
-            $workspace->jobs()->create([
-                'job_number'    => $latestJob->job_number + 1,
-                'input_script'  => implode(PHP_EOL, $params),
-                'user_id'       => auth()->user()->id,
-                'simulation_id' => 1,
-                'name'          => request('title'),
-                'status'        => 'running',
-                'key'           => $key,
-            ]);
-
-            DB::commit();
-        } catch (\Exception $e) {
-            DB::rollback();
-            throw $e;
-        }
-
-        return redirect()->route('workspaces.jobs.index', $workspace);
-    }
-
-
-    public function run(Workspace $workspace, $jobKey)
-    {
-        // buat folder baru
-        // masukan output folder baru tersebut, jangan lupa log nya
-        // Buat Jobs berdasarkan workspace
-
-        $runFile = 'in.run';
-        $bashFile = 'submit';
-        $job = Job::where('key', $jobKey)->first();
-        $user = auth()->user();
-        
-        $command = (new SSHService("/$workspace->key"))
-            ->mkdir('output/' . $job->key)
-            ->cd('output/' . $job->key)
-            ->commands('touch ' . $runFile);
-
-        $params = explode(PHP_EOL, $job->input_script);
-
-        $availableReplace = [
-            ':job_key' => $job->key,
-        ];
-
-        $commands = [];
-        foreach ($params as $param) {
-            $param = str_replace('$', '\$', $param);
-            $param = str_replace(array_keys($availableReplace), array_values($availableReplace), $param);
-            $commands[] = "echo \"$param\" >> $runFile";
-        }
-
-        $command
-            ->commands($commands)
-            ->cd('..')
-            ->cd('..')
-            ->commands("salloc -p zw -n 8 mpirun ../lmp_sph -in output/" . $job->key . "/in.run &> /dev/null &")
-            // ->commands("salloc -p zw -n 8 mpirun ../../../lmp_sph -in ./in.run &> /dev/null &")
-            ->run();
-            // ->commands("touch $bashFile")
-            // ->commands("echo '#!/bin/bash' >> $bashFile")
-            // ->commands("echo '#SBATCH -p zwoelfkerne' >> $bashFile")
-            // ->commands("echo '#SBATCH -n 8' >> $bashFile")
-            // ->commands("echo '#SBATCH --job-name=apsi_" . date('YmdHis') . '_' . $user->id . "' >> $bashFile")
-            // ->commands("echo 'mpirun ../../../lmp_sph -in {$runFile}' >> $bashFile")
-            // ->run();
-
-        DB::transaction(function() use ($job) {
-            $job->status = 'running';
-            $job->save();
-        });
-
-        return redirect()->route('workspaces.jobs.index', $workspace);
-    }
-
-    public function storeAndRun(Workspace $workspace)
-    {
-        $params = explode(PHP_EOL, request('input_script'));
-        $latestJob = DB::table('jobs')->orderBy('created_at', 'desc')->first();
-        $jobKey = date('Y_m_d_h_i_s') . '_' . str_slug(request('title'), '_');
-
-        try {
-            DB::beginTransaction();
-
-            $workspace->jobs()->create([
-                'job_number'    => $latestJob->job_number + 1,
-                'input_script'  => implode(PHP_EOL, $params),
-                'user_id'       => auth()->user()->id,
-                'simulation_id' => 1,
-                'name'          => request('title'),
-                'status'        => 'running',
-                'key'           => $jobKey,
-            ]);
-
-            DB::commit();
-        } catch (\Exception $e) {
-            DB::rollback();
-            throw $e;
-        }
-
-        $runFile = 'in.run';
-        $bashFile = 'submit';
-        
-        $job = Job::where('key', $jobKey)->first();
-        $user = auth()->user();
-        
-        $command = (new SSHService("/$workspace->key"))
-            ->mkdir('output/' . $key)
-            ->cd('output/' . $key)
-            ->commands('touch ' . $runFile);
-
-        $params = explode(PHP_EOL, $job->input_script);
-
-        $availableReplace = [
-            ':job_key' => $job->key,
-        ];
-
-        $commands = [];
-        foreach ($params as $param) {
-            $param = str_replace('$', '\$', $param);
-            $param = str_replace(array_keys($availableReplace), array_values($availableReplace), $param);
-            $commands[] = "echo \"$param\" >> $runFile";
-        }
-
-        $command
-            ->commands($commands)
-            ->cd('..')
-            ->cd('..')
-            ->commands("salloc -p zw -n 8 mpirun ../lmp_sph -in output/" . $key . "/in.run &> /dev/null &")
-            ->run();
-            // ->commands("touch $bashFile")
-            // ->commands("echo '#!/bin/bash' >> $bashFile")
-            // ->commands("echo '#SBATCH -p zwoelfkerne' >> $bashFile")
-            // ->commands("echo '#SBATCH -n 8' >> $bashFile")
-            // ->commands("echo '#SBATCH --job-name=apsi_" . date('YmdHis') . '_' . $user->id . "' >> $bashFile")
-            // ->commands("echo 'mpirun ../../../lmp_sph -in {$runFile}' >> $bashFile")
-            // ->run();
-
-        DB::transaction(function() use ($job) {
-            $job->status = 'running';
-            $job->save();
-        });
-
-        return redirect()->route('workspaces.jobs.index', $workspace);
-    }
-
-    public function refresh($key)
-    {
-        $job = Job::where('key', $key)->firstOrFail();
-
-        $commands = [];
-        $commands[] = 'cd apsi; cd ' . $job->key;
-
-        $out = [];
-        SSH::run(array_merge($commands, [
-            "cat slurm-{$job->job_number}.out",
-        ]), function ($line) use (&$out) {
-            $out[] = $line;
-        });
-
-        $log = [];
-        SSH::run(array_merge($commands, [
-            'cat log.lammps',
-        ]), function ($line) use (&$log) {
-            $log[] = $line;
-        });
-
-        $job->out = implode(PHP_EOL, $out);
-        $job->log = implode(PHP_EOL, $log);
-        $job->save();
-
-        return back();
-    }
-
-    public function edit(Workspace $workspace, $key)
-    {
-        $job = Job::where('key', $key)->first();
-
-        return view('jobs.edit_template')->with([
-            'job' => $job,
-            'workspace' => $workspace
-        ]);
-    }
-
-    public function update(Workspace $workspace, Request $request, $key)
-    {
-        $job = Job::where('key', $key)->first();
-
-        DB::transaction(function () use ($job, $request) {
-            $job->update($request->all());
-        });
-
-        return redirect(route('workspaces.jobs.index', $workspace));
-    }
-
-    public function deleteJob(Workspace $workspace, $jobKey) {
-        $job = Job::where('key', $jobKey)->first();
-        
-        (new SSHService("/$workspace->key"))
-            ->commands('rm -rf output/' . $job->key)
-            ->run();
-
-        DB::transaction(function() use ($job) {
-            // SSH::run([
-            //     "scancel $job->job_number",
-            // ]);
-            $job->delete();
-        });
-
-        return back();
-    }
+    /* End Other Block */
 }

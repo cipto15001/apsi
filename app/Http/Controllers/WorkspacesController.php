@@ -32,11 +32,7 @@ class WorkspacesController extends Controller
             ]));
 
             (new SSHService())
-                ->mkdir($uid)
-                ->mkdir($uid . '/scripts')
-                ->mkdir($uid . '/input')
-                ->mkdir($uid . '/output')
-                ->mkdir($uid . '/resources')
+                ->commands("mkdir $uid")
                 ->run();
         });
 
@@ -47,8 +43,6 @@ class WorkspacesController extends Controller
     {
         $workspaceId = $workspace->id;
         // $url = "http://apsi.facade.id/file/#/c/guriang.unpad.ac.id/erick/" . base64_encode(str_replace('\'', '"', "{'t':'sftp','c':{'o':22,'i':'/scratch/erick/apsi/$folder','m':'Password','p':'aA!12345'}}"));
-        
-        // url("file_manager/?id=$workspaceId") = http://localhost:8000/file_manager/?id=$workspaceid
         $url = url("file_manager/?id=$workspaceId");
 
         return view('workspaces.show')->with([
