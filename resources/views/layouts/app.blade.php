@@ -18,7 +18,7 @@
     <!-- Bootstrap Core Css -->
     <link href="{{ asset('vendors/bootstrap/css/bootstrap.css') }}" rel="stylesheet">
 
-    <link href="{{ asset('vendors/bootstrap-select/css/bootstrap-select.css') }}" rel="stylesheet">
+    {{-- <link href="{{ asset('vendors/bootstrap-select/css/bootstrap-select.css') }}" rel="stylesheet"> --}}
 
     <!-- Waves Effect Css -->
     <link href="{{ asset('vendors/node-waves/waves.css') }}" rel="stylesheet"/>
@@ -127,7 +127,7 @@
 <script src="{{ asset('vendors/bootstrap/js/bootstrap.js') }}"></script>
 
 <!-- Select Plugin Js -->
-<script src="{{ asset('vendors/bootstrap-select/js/bootstrap-select.js') }}"></script>
+{{-- <script src="{{ asset('vendors/bootstrap-select/js/bootstrap-select.js') }}"></script> --}}
 
 <!-- Slimscroll Plugin Js -->
 <script src="{{ asset('vendors/jquery-slimscroll/jquery.slimscroll.js') }}"></script>

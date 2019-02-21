@@ -5,28 +5,40 @@ namespace App\Http\Controllers;
 
 use App\Services\SSHService;
 use App\Workspace;
+use App\Job;
 
 class PNG2CVTController
 {
     public function index(Workspace $workspace)
     {
-        $files = new SSHService("/$workspace->key");
-        $files = $files
-            ->cd("resources")
-            ->ls();
+        $jobs = auth()->user()->jobs;
 
         return view('png2cvt.index')->with([
             'workspace' => $workspace,
-            'files' => $files,
+            'jobs' => $jobs,
+            'files' => []
         ]);
     }
 
-    public function doConvert(Workspace $workspace)
+    public function getFiles(Workspace $workspace, Job $job)
     {
-        $input = "./$workspace->key" . '/resources/' . request('input');
-        $output = "./$workspace->key" . '/input/' . request('output') . '.lmp';
-        (new SSHService())
-            ->commands("php pngcvt-sq.php '" . $input . "' '" . $output . "'")
+        $files = (new SSHService("/$workspace->key"))
+            ->commands("cd $job->key")
+            ->commands("cd resources")
+            ->commands("ls")
+            ->run();
+
+        $result = array_slice(explode("\n",$files), 0, count($files)-3);
+        return response()->json($result);
+    }
+
+    public function doConvert(Workspace $workspace, Job $job)
+    {
+        $input = request('input');
+        $output = request('output') . '.lmp';
+        (new SSHService("/$workspace->key"))
+            ->commands("cd $job->key")
+            ->commands("php /scratch/erick/apsi/pngcvt-sq.php resources/$input input/$output")
             ->run();
 
         return redirect()->route('workspaces.show', $workspace);

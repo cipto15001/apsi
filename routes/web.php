@@ -60,9 +60,13 @@ Route::group([
     Route::get('workspaces/{workspace}/files/image', 'FilesController@image')->name('workspaces.files.image');
     Route::get('workspaces/{workspace}/files/video', 'FilesController@video')->name('workspaces.files.video');
 
-    Route::get('workspaces/{workspace}/png2cvt', 'PNG2CVTController@index')->name('workspaces.png2cvt.index');
-    Route::post('workspaces/{workspace}/png2cvt/doConvert', 'PNG2CVTController@doConvert')->name('workspaces.png2cvt.do_convert');
-    Route::get('workspaces/{workspace}/cli', 'WebCLIController@index')->name('workspaces.cli');
+    /* PNG2CVT */
+    {
+        Route::get('workspaces/{workspace}/png2cvt', 'PNG2CVTController@index')->name('workspaces.png2cvt.index');
+        Route::get('workspaces/{workspace}/jobs/{job}/getFiles', 'PNG2CVTController@getFiles')->name('workspaces.png2cvt.get_files');
+        Route::post('workspaces/{workspace}/png2cvt/{job}/doConvert', 'PNG2CVTController@doConvert')->name('workspaces.png2cvt.do_convert');
+        Route::get('workspaces/{workspace}/cli', 'WebCLIController@index')->name('workspaces.cli');
+    }
 
     Route::post('workspace/{workspace}/jobs/confirm/{slug}', 'JobsController@confirm')->name('jobs.confirm');
     Route::get('jobs/{key}', 'JobsController@show')->name('jobs.show');

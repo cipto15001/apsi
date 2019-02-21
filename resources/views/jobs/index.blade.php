@@ -64,7 +64,7 @@
                                 <a href="{{ route('workspaces.jobs.log', [$workspace, $job]) }}" data-toggle="tooltip" data-placement="top" title="Log"><i class="material-icons">error_outline</i></a>
                                 {{-- <a href="" data-toggle="tooltip" data-placement="top" title="Run"><i class="material-icons">play_circle_outline</i></a> --}}
                                 <span data-toggle="tooltip" data-placement="top" title="Run">
-                                    <a class="toggle-the-modal" data-job-key="{{ $job->key }}" data-workspace="" data-toggle="modal" data-target="#myModal" title="Run" style="cursor: pointer;"><i class="material-icons">play_circle_outline</i></a>
+                                <a class="toggle-the-modal" data-job-key="{{ $job->key }}" data-workspace-id="{{ $workspace->id }}" data-job-id="{{ $job->id }}" data-email="{{ auth()->user()->email }}" data-toggle="modal" data-target="#myModal" title="Run" style="cursor: pointer;"><i class="material-icons">play_circle_outline</i></a>
                                 </span>
                             </td>
                         </tr>
@@ -84,8 +84,7 @@
             <button type="button" class="close" data-dismiss="modal">&times;</button>
             <h4 class="modal-title"> Run ! -bashFile</h4>
           </div>
-          <form method="GET" action="" class="form-horizontal">
-              
+            <form id="run-job" method="GET" class="form-horizontal">
               <div class="modal-body">
                 <div class="form-group">
                     <label class="col-sm-4 control-label" for="sel1">Nama Partisi</label>
@@ -111,6 +110,7 @@
                     <label class="col-sm-4 control-label">Nama Job</label>
                     <div class="col-sm-8">
                       <input class="form-control" id="nama-job" type="text" value="nama-job" disabled>
+                      <input id="job-name" name="job_name" type="hidden">
                     </div>
                 </div>
                 <div class="form-group">
@@ -122,7 +122,7 @@
                 <div class="form-group">
                     <label class="col-sm-4 control-label">Error log file path</label>
                     <div class="col-sm-8">
-                      <input class="form-control" id="error-log" type="text" name="error_log_path" placeholder="Error log path..." disabled>
+                      <input class="form-control" id="nama-error-log" type="text" name="error_log_path" placeholder="Error log path..." disabled>
                     </div>
                 </div>
               </div>
@@ -208,6 +208,23 @@
                         }      
                     })
                 }
+            })
+
+            $('.toggle-the-modal').click(function() {
+                let jobKey = $(this).attr('data-job-key')
+                let jobNameArray = jobKey.split("_").slice(6, jobKey.length)
+                
+                let jobName = jobNameArray.join(" ")
+                let jobId = $(this).attr('data-job-id')
+                let workspaceId = $(this).attr('data-workspace-id')
+                let email = $(this).attr('data-email')
+                let baseUrl = 'http://127.0.0.1:8000'
+
+                $('#myModal').find('#run-job').attr('action', baseUrl + '/workspaces/' + workspaceId + '/jobs/' + jobId + '/run')
+                $('#myModal').find('#nama-email').val(email)
+                $('#myModal').find('#job-name').val(jobName)
+                $('#myModal').find('#nama-job').val(jobName)
+                $('#myModal').find('#nama-error-log').val(jobKey + "/log.lammps")
             })
         })
     </script>

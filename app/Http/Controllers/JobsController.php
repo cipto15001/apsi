@@ -184,7 +184,7 @@ class JobsController extends Controller
 
 
     /* Other Block */
-    public function run(Workspace $workspace, Job $job)
+    public function run(Workspace $workspace, Job $job, Request $request)
     {
         // buat folder baru
         // masukan output folder baru tersebut, jangan lupa log nya
@@ -192,18 +192,19 @@ class JobsController extends Controller
 
         $runFile = 'in.run';
         $bashFile = 'submit';
-        $key = date('Y_m_d_h_i_s') . '_' . str_slug(request('title'), '_');
+        $partitionName = $request->partition;
+        $totalNode = $request->total_node;
+        $jobName = $request->job_name;
         $user = auth()->user();
         
         $command = (new SSHService("/$workspace->key"))
-            ->mkdir('output/' . $key)
-            ->cd('output/' . $key)
+            ->commands("cd $job->key")
             ->commands('touch ' . $runFile);
 
         $params = explode(PHP_EOL, request('input_script'));
 
         $availableReplace = [
-            ':job_key' => $key,
+            ':job_key' => $job->key,
         ];
 
         $commands = [];
@@ -215,17 +216,22 @@ class JobsController extends Controller
 
         $command
             ->commands($commands)
-            ->cd('..')
-            ->cd('..')
-            ->commands("salloc -n 8 mpirun ../lmp_sph -in output/" . $key . "/in.run &> /dev/null &")
-            ->run();
-            // ->commands("touch $bashFile")
-            // ->commands("echo '#!/bin/bash' >> $bashFile")
-            // ->commands("echo '#SBATCH -p zwoelfkerne' >> $bashFile")
-            // ->commands("echo '#SBATCH -n 8' >> $bashFile")
-            // ->commands("echo '#SBATCH --job-name=apsi_" . date('YmdHis') . '_' . $user->id . "' >> $bashFile")
-            // ->commands("echo 'mpirun ../../../lmp_sph -in {$runFile}' >> $bashFile")
+            // ->cd('..')
+            // ->cd('..')
+            // ->commands("salloc -n 8 mpirun ../lmp_sph -in output/" . $key . "/in.run &> /dev/null &")
             // ->run();
+            ->commands("touch $bashFile")
+            ->commands("echo '#!/bin/bash' >> $bashFile")
+            ->commands("echo '#SBATCH -p $partitionName' >> $bashFile")
+            ->commands("echo '#SBATCH -n $totalNode' >> $bashFile")
+            ->commands("echo '#SBATCH --job-name=apsi_" . date('YmdHis') . '_' . $user->id . '_' . $jobName . "' >> $bashFile")
+            ->commands("echo 'mpirun /scratch/erick/apsi/lmp_sph -in {$runFile}' >> $bashFile")
+            ->commands("bash $bashFile")
+            ->run();
+
+        $job->status = 'running';
+        $job->save();
+        return redirect()->route('workspaces.jobs.index', $workspace);
     }
 
     public function refresh($key)

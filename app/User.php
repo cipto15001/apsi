@@ -32,7 +32,7 @@ class User extends Authenticatable
         return $this->belongsToMany(Simulation::class, 'simulation_histories');
     }
 
-    public function job()
+    public function jobs()
     {
         return $this->hasMany(Job::class);
     }
