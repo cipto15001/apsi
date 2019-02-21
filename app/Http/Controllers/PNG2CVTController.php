@@ -11,7 +11,7 @@ class PNG2CVTController
 {
     public function index(Workspace $workspace)
     {
-        $jobs = auth()->user()->jobs;
+        $jobs = auth()->user()->jobs()->where('workspace_id', $workspace->id)->get();
 
         return view('png2cvt.index')->with([
             'workspace' => $workspace,

@@ -122,7 +122,7 @@
                 <div class="form-group">
                     <label class="col-sm-4 control-label">Error log file path</label>
                     <div class="col-sm-8">
-                      <input class="form-control" id="nama-error-log" type="text" name="error_log_path" placeholder="Error log path..." disabled>
+                      <input class="form-control" type="text" id="nama-error-log" placeholder="Error log path..." disabled>
                     </div>
                 </div>
               </div>
@@ -224,7 +224,7 @@
                 $('#myModal').find('#nama-email').val(email)
                 $('#myModal').find('#job-name').val(jobName)
                 $('#myModal').find('#nama-job').val(jobName)
-                $('#myModal').find('#nama-error-log').val(jobKey + "/log.lammps")
+                $('#myModal').find('#nama-error-log').val(jobKey + "/slurm.out")
             })
         })
     </script>

@@ -15,10 +15,12 @@ class OutputController extends Controller
 
         if (request()->filled('jobKey')) {
             $images = (new SSHService("/$workspace->key"))
-                ->cd('output')
-                ->cd(request('jobKey'))
-                ->cd('renderedImages')
-                ->ls();
+                ->commands('cd ' . request('jobKey'))
+                ->commands('cd rendered_images')
+                ->commands('ls')
+                ->run();
+            if (count($images) == 0)
+                $images = ['No images found'];
         }
 
         return view('output.index')->with([

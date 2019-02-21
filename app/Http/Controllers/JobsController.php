@@ -191,7 +191,8 @@ class JobsController extends Controller
         // Buat Jobs berdasarkan workspace
 
         $runFile = 'in.run';
-        $bashFile = 'submit';
+        $bashFile = 'submit.sh';
+        $errorLogFile = 'slurm.out';
         $partitionName = $request->partition;
         $totalNode = $request->total_node;
         $jobName = $request->job_name;
@@ -224,8 +225,9 @@ class JobsController extends Controller
             ->commands("echo '#!/bin/bash' >> $bashFile")
             ->commands("echo '#SBATCH -p $partitionName' >> $bashFile")
             ->commands("echo '#SBATCH -n $totalNode' >> $bashFile")
+            ->commands("echo '#SBATCH -e $errorLogFile' >> $bashFile")
             ->commands("echo '#SBATCH --job-name=apsi_" . date('YmdHis') . '_' . $user->id . '_' . $jobName . "' >> $bashFile")
-            ->commands("echo 'mpirun /scratch/erick/apsi/lmp_sph -in {$runFile}' >> $bashFile")
+            ->commands("echo 'mpirun /scratch/erick/apsi/lmp_sph -in /scratch/erick/apsi/$workspace->key/$job->key/$runFile &> /dev/null &' >> $bashFile")
             ->commands("bash $bashFile")
             ->run();
 
