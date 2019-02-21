@@ -201,7 +201,7 @@ class JobsController extends Controller
             ->commands("cd $job->key")
             ->commands('touch ' . $runFile);
 
-        $params = explode(PHP_EOL, request('input_script'));
+        $params = explode(PHP_EOL, $job->input_script);
 
         $availableReplace = [
             ':job_key' => $job->key,
