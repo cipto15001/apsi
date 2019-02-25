@@ -35,8 +35,8 @@
                         </div>
                         <div class="body align-justify">{{ $workspace->description }}</div>
                         <div class="body">
-                            <button type="button" class="btn bg-red waves-effect" data-toggle="modal"
-                            data-target="#deleteSimulation">
+                            <button type="button" class="btn bg-red waves-effect delete-workspace-button" data-toggle="modal"
+                            data-target="#deleteSimulation" data-workspace-id="{{ $workspace->id }}">
                                 <i class="material-icons">delete</i>
                                 <span>Delete</span>
                             </button>
@@ -143,10 +143,14 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" form="form-workspaces-create" class="btn btn-link waves-effect bg-amber">
-                            Delete
-                        </button>
-                        <button type="button" class="btn btn-link waves-effect bg-red" data-dismiss="modal">CLOSE</button>
+                        <form action="#" id="delete-workspace-form" method="POST">
+                            {{ method_field('DELETE') }}
+                            {{ csrf_field() }}
+                            <button id="delete-confirm" type="submit" form="form-workspaces-create" class="btn btn-link waves-effect bg-amber">
+                                Delete
+                            </button>
+                            <button type="button" class="btn btn-link waves-effect bg-red" data-dismiss="modal">CLOSE</button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -157,5 +161,17 @@
     <script src="{{ asset('vendors/autosize/autosize.js') }}"></script>
     <script>
         autosize($('textarea.auto-growth'));
+    </script>
+    <script>
+        $(document).ready(function() {
+            $('.delete-workspace-button').click(function() {
+                let workspaceId = $(this).attr('data-workspace-id')
+                let baseUrl = 'http://127.0.0.1:8000'
+                $('#delete-workspace-form').attr('action', baseUrl + '/workspaces/' + workspaceId + '/delete')
+            })
+            $('#delete-confirm').click(function() {
+                $('#delete-workspace-form').submit()
+            })
+        })
     </script>
 @endpush

@@ -55,4 +55,22 @@ class WorkspacesController extends Controller
     {
         return view('workspaces.file_manager');
     }
+
+    public function delete(Workspace $workspace)
+    {
+        try {
+            DB::beginTransaction();
+            $workspace->delete();
+            DB::commit();
+
+            (new SSHService())
+                ->commands("rm -rf $workspace->key")
+                ->run();
+
+            return redirect()->route('workspaces.index');
+        } catch(\Exception $e) {
+            DB::rollback();
+            throw $e;
+        }
+    }
 }
