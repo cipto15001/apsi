@@ -60,6 +60,7 @@ class WorkspacesController extends Controller
     {
         try {
             DB::beginTransaction();
+            $workspace->jobs()->delete();
             $workspace->delete();
             DB::commit();
 

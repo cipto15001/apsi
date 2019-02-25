@@ -75,6 +75,8 @@ Route::group([
     Route::delete('jobs/{job}', 'JobsController@destroy')->name('jobs.destroy');
     Route::get('workspaces/{workspace}/log', 'LogsController@index')->name('workspaces.logs');
     
+    // User
+    Route::put('/user/change_email', 'UsersController@changeEmail')->name('users.change_email');
 });
 Route::post('api/webcli/{workspace}/do_command', 'WebCLIController@doCommand');
 

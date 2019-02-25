@@ -108,9 +108,9 @@
                                     <img src="{{ asset('img/user-lg.jpg') }}" alt="AdminBSB - Profile Image" />
                                 </div>
                                 <div class="content-area">
-                                    <h3>Marc K. Hammond</h3>
-                                    <p>Email@mail.google.co.id</p>
-                                    <p>Administrator</p>
+                                    <h3>{{ auth()->user()->name }}</h3>
+                                    <p>{{ auth()->user()->email }}</p>
+                                    <p>{{ ucfirst(auth()->user()->role) }}</p>
                                 </div>
                             </div>
                             <div class="profile-footer">
@@ -160,6 +160,9 @@
                 <div class="modal-body">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="body">
+                            <div id="error-email" style="display: none;" class="alert alert-danger"></div>
+                            <div id="success-email" style="display: none;" class="alert alert-success">Your email has been successfully changed!</div>
+                            {{ csrf_field() }}
                             <label for="title">New Email</label>
                             <div class="form-group">
                                 <div class="form-line">
@@ -174,12 +177,11 @@
                                         placeholder="Input confirmation email">
                                 </div>
                             </div>
-                            </form>
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" form="form-workspaces-create" class="btn btn-success waves-effect bg-amber">Change
+                    <button type="submit" class="btn btn-success waves-effect bg-amber change-email">Change
                     </button>
                     <button type="button" class="btn btn-danger waves-effect bg-red" data-dismiss="modal">Close</button>
                 </div>
@@ -191,7 +193,7 @@
             <div class="modal-content">
                 <div class="modal-header bg-blue-grey">
                     <h3>
-                        Edit Email
+                        Edit Password
                     </h3>
                 </div>
                 <div class="modal-body">
@@ -259,5 +261,49 @@
 <script src="{{ asset('scripts/material.min.js') }}"></script>
 <script src="{{ asset('vendors/lodash/lodash.min.js') }}"></script>
 @stack('scripts')
+<script>
+    $(document).ready(function() {
+        $("button.change-email").click(function() {
+            let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            let newEmail = $('#newEmail').val()
+            let confirmEmail = $('#confirmEmail').val()
+            let _token = $("input[name='_token']").val()
+            
+            if (newEmail == '' || confirmEmail == '') {
+                $('#error-email').text('Fields cannot be empty!')
+                $('#error-email').show('blind')
+            } else if (!re.test(String(newEmail).toLowerCase()) || !re.test(String(confirmEmail).toLowerCase())) {
+                $('#error-email').text('Invalid email format! Please use standard email format!')
+                $('#error-email').show('blind')
+            } else {
+                if (newEmail != confirmEmail) {
+                    $('#error-email').html('<strong>New Email</strong> field and <strong>Confirm New Email</strong> field didn\'t match!')
+                    $('#error-email').show('blind')
+                } else {
+                    $('#error-email').hide('blind')
+                    let baseUrl = 'http://127.0.0.1:8000'
+                    $.ajax({
+                        method: 'PUT',
+                        data: {
+                            email: newEmail,
+                            _token: _token
+                        },
+                        dataType: 'json',
+                        url: baseUrl + '/user/change_email',
+                        success: function(data) {
+                            $('#success-email').show('blind')
+                            window.setTimeout(function() {
+                                window.location.reload()
+                            }, 2000);
+                        },
+                        error: function(error) {
+                            console.error(error)
+                        }
+                    })
+                }
+            }
+        })
+    })
+</script>
 </body>
 </html>

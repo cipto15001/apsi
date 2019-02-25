@@ -106,4 +106,20 @@ class UsersController extends Controller
 
         return redirect()->route('users.index');
     }
+
+    public function changeEmail(Request $request)
+    {
+        try {
+            DB::beginTransaction();
+            $user = auth()->user();
+            $user->email = $request->email;
+            $user->save();
+            DB::commit();
+
+            return response()->json('OK');
+        } catch (\Exception $e) {
+            DB::rollback();
+            throw $e;
+        }
+    }
 }
