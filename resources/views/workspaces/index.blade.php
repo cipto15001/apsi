@@ -35,6 +35,11 @@
                         </div>
                         <div class="body align-justify">{{ $workspace->description }}</div>
                         <div class="body">
+                            <button type="button" class="btn bg-red waves-effect" data-toggle="modal"
+                            data-target="#deleteSimulation">
+                                <i class="material-icons">delete</i>
+                                <span>Delete</span>
+                            </button>
                             <a href="{{ route('workspaces.show', $workspace) }}" target="_blank">
                                 <button type="button" class="btn bg-light-blue waves-effect">
                                     <i class="material-icons">launch</i>
@@ -122,6 +127,30 @@
             </div>
         </div>
     </div>
+    <div class="modal fade" id="deleteSimulation" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header bg-blue-grey">
+                        <h3>
+                            Delete Workspace
+                        </h3>
+                    </div>
+                    <div class="modal-body">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 p-l-0">
+                            <div class="body">
+                                <h5>Are you sure to delete this workspace ?</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" form="form-workspaces-create" class="btn btn-link waves-effect bg-amber">
+                            Delete
+                        </button>
+                        <button type="button" class="btn btn-link waves-effect bg-red" data-dismiss="modal">CLOSE</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 @endsection
 
 @push('scripts')

@@ -64,9 +64,9 @@
                         </div>
                         <div class="content">
                             <div>
-                                <h3>PNG
+                                <h3>Png
                                     <small><span style="color: #E91E63">to</span></small>
-                                    CVT
+                                    cvt
                                 </h3>
                             </div>
                         </div>
@@ -81,6 +81,18 @@
                         </div>
                         <div class="content">
                             <div><h3>Console</h3></div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-2 col-md-3 col-sm-6 col-xs-12">
+                <a href="{{ route('workspaces.output.index', $workspace) }}" class="info-box-link">
+                    <div class="info-box bg-brown hover-expand-effect">
+                        <div class="icon">
+                            <i class="material-icons">videocam</i>
+                        </div>
+                        <div class="content">
+                            <div><h3>Render</h3></div>
                         </div>
                     </div>
                 </a>
