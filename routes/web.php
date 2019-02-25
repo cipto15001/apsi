@@ -28,6 +28,7 @@ Route::group([
     Route::get('workspaces', 'WorkspacesController@index')->name('workspaces.index');
     Route::post('workspaces/store', 'WorkspacesController@store')->name('workspaces.store');
     Route::get('workspaces/{workspace}', 'WorkspacesController@show')->name('workspaces.show');
+    Route::delete('workspaces/{workspace}/delete', 'WorkspacesController@delete')->name('workspaces.delete');
     Route::get('workspaces/file/fileManager', 'WorkspacesController@fileManager')->name('workspaces.fileManager');
 
     Route::put('simulations/{simulation}/update_simul', 'SimulationsController@update_simulation_parameters');
