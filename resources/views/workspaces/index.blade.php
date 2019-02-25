@@ -128,29 +128,29 @@
         </div>
     </div>
     <div class="modal fade" id="deleteSimulation" tabindex="-1" role="dialog">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header bg-blue-grey">
-                        <h3>
-                            Delete Workspace
-                        </h3>
-                    </div>
-                    <div class="modal-body">
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 p-l-0">
-                            <div class="body">
-                                <h5>Are you sure to delete this workspace ?</h5>
-                            </div>
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-blue-grey">
+                    <h3>
+                        Delete Workspace
+                    </h3>
+                </div>
+                <div class="modal-body">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 p-l-0">
+                        <div class="body">
+                            <h5>Are you sure to delete this workspace ?</h5>
                         </div>
                     </div>
-                    <div class="modal-footer">
-                        <button type="submit" form="form-workspaces-create" class="btn btn-link waves-effect bg-amber">
-                            Delete
-                        </button>
-                        <button type="button" class="btn btn-link waves-effect bg-red" data-dismiss="modal">CLOSE</button>
-                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" form="form-workspaces-create" class="btn btn-link waves-effect bg-amber">
+                        Delete
+                    </button>
+                    <button type="button" class="btn btn-link waves-effect bg-red" data-dismiss="modal">CLOSE</button>
                 </div>
             </div>
         </div>
+    </div>
 @endsection
 
 @push('scripts')

@@ -98,17 +98,47 @@
         <ul class="nav nav-tabs tab-nav-right">
         </ul>
         <div class="tab-content">
-            <div role="tabpanel" class="tab-pane fade in active in active">
+            <div class="container-fluid">
+                <div class="row clearfix">
+                    <div class="col-xs-12 col-sm-12">
+                        <div class="profile-card">
+                            <div class="profile-header">&nbsp;</div>
+                            <div class="profile-body">
+                                <div class="image-area">
+                                    <img src="{{ asset('img/user-lg.jpg') }}" alt="AdminBSB - Profile Image" />
+                                </div>
+                                <div class="content-area">
+                                    <h3>Marc K. Hammond</h3>
+                                    <p>Email@mail.google.co.id</p>
+                                    <p>Administrator</p>
+                                </div>
+                            </div>
+                            <div class="profile-footer">
+                                <form method="POST" action="{{ route('logout') }}">
+                                    <!-- <div class="pink"></div> -->
+                                    {{ csrf_field() }}
+                                    <button class="btn btn-success btn-block" type="button" data-toggle="modal"
+                                    data-target="#changeEmail">Change Email</button>
+                                    <button class="btn btn-primary btn-block" type="button" data-toggle="modal"
+                                    data-target="#changePassword">Change Password</button>
+                                    <button class="btn btn-danger btn-block" type="submit">Logout</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{-- <div role="tabpanel" class="tab-pane fade in active in active">
                 <ul class="demo-choose-skin">
                     <li data-theme="pink">
                         <form method="POST" action="{{ route('logout') }}">
                             <!-- <div class="pink"></div> -->
                             {{ csrf_field() }}
-                            <input class="btn btn-primary btn-sm" type="submit" value="Logout">
+                            <button class="btn btn-primary btn-sm" type="submit">Logout</button>
                         </form>
                     </li>
                 </ul>
-            </div>
+            </div> --}}
         </div>
     </aside>
     <!-- #END# Right Sidebar -->
@@ -119,6 +149,88 @@
 </section>
 <!-- #END# Page Loader -->
 @yield('non-main-content')
+    <div class="modal fade" id="changeEmail" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-blue-grey">
+                    <h3>
+                        Edit Email
+                    </h3>
+                </div>
+                <div class="modal-body">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="body">
+                            <label for="title">New Email</label>
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input type="text" id="newEmail" class="form-control" required
+                                        placeholder="Input new email">
+                                </div>
+                            </div>
+                            <label for="description">Confirm New Email</label>
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input type="text" id="confirmEmail" class="form-control" required
+                                        placeholder="Input confirmation email">
+                                </div>
+                            </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" form="form-workspaces-create" class="btn btn-success waves-effect bg-amber">Change
+                    </button>
+                    <button type="button" class="btn btn-danger waves-effect bg-red" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="changePassword" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-blue-grey">
+                    <h3>
+                        Edit Email
+                    </h3>
+                </div>
+                <div class="modal-body">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="body">
+                            <label for="title">Old Password</label>
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input type="text" id="oldPassword" class="form-control" required
+                                        placeholder="Input old password">
+                                </div>
+                            </div>
+                            <label for="description">New Password</label>
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input type="text" id="confirmNewPassword" class="form-control" required
+                                        placeholder="Input new password">
+                                </div>
+                            </div>
+                            <label for="description">Confirmation Password</label>
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input type="text" id="confirmPasword" class="form-control" required
+                                        placeholder="Input confirmation password">
+                                </div>
+                            </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" form="form-workspaces-create" class="btn btn-success waves-effect bg-amber">Change
+                    </button>
+                    <button type="button" class="btn btn-danger waves-effect bg-red" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
 <!-- Jquery Core Js -->
 <script src="{{ asset('vendors/jquery/jquery.min.js') }}"></script>
