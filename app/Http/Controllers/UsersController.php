@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use Illuminate\Support\Facades\Auth;
 use DB;
 use Illuminate\Http\Request;
 
@@ -113,6 +114,40 @@ class UsersController extends Controller
             DB::beginTransaction();
             $user = auth()->user();
             $user->email = $request->email;
+            $user->save();
+            DB::commit();
+
+            return response()->json('OK');
+        } catch (\Exception $e) {
+            DB::rollback();
+            throw $e;
+        }
+    }
+
+    public function checkOldPassword(Request $request)
+    {
+        $credentials = [
+            'email'     => auth()->user()->email,
+            'password'  => $request->oldPassword
+        ];
+
+        $isCorrect = Auth::attempt($credentials, false);
+
+        if ($isCorrect) {
+            return response()->json('OK');
+        } else {
+            return response()->json('NOT_FOUND');
+        }
+    }
+
+    public function changePassword(Request $request)
+    {
+        try {
+            $newPassword = bcrypt($request->newPassword);
+            $user = auth()->user();
+
+            DB::beginTransaction();
+            $user->password = $newPassword;
             $user->save();
             DB::commit();
 

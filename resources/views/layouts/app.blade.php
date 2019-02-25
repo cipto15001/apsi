@@ -199,24 +199,26 @@
                 <div class="modal-body">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="body">
+                            <div id="error-password" style="display: none;" class="alert alert-danger"></div>
+                            <div id="success-password" style="display: none;" class="alert alert-success">Your password has been successfully changed!</div>
                             <label for="title">Old Password</label>
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="text" id="oldPassword" class="form-control" required
+                                    <input type="password" id="oldPassword" class="form-control" required
                                         placeholder="Input old password">
                                 </div>
                             </div>
                             <label for="description">New Password</label>
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="text" id="confirmNewPassword" class="form-control" required
+                                    <input type="password" id="newPassword" class="form-control" required
                                         placeholder="Input new password">
                                 </div>
                             </div>
                             <label for="description">Confirmation Password</label>
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="text" id="confirmPasword" class="form-control" required
+                                    <input type="password" id="confirmNewPassword" class="form-control" required
                                         placeholder="Input confirmation password">
                                 </div>
                             </div>
@@ -225,7 +227,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" form="form-workspaces-create" class="btn btn-success waves-effect bg-amber">Change
+                    <button type="utton" class="btn btn-success waves-effect bg-amber change-password">Change
                     </button>
                     <button type="button" class="btn btn-danger waves-effect bg-red" data-dismiss="modal">Close</button>
                 </div>
@@ -263,11 +265,12 @@
 @stack('scripts')
 <script>
     $(document).ready(function() {
+        let baseUrl = 'http://127.0.0.1:8000'
+        let _token = $("input[name='_token']").val()
         $("button.change-email").click(function() {
             let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
             let newEmail = $('#newEmail').val()
             let confirmEmail = $('#confirmEmail').val()
-            let _token = $("input[name='_token']").val()
             
             if (newEmail == '' || confirmEmail == '') {
                 $('#error-email').text('Fields cannot be empty!')
@@ -281,7 +284,6 @@
                     $('#error-email').show('blind')
                 } else {
                     $('#error-email').hide('blind')
-                    let baseUrl = 'http://127.0.0.1:8000'
                     $.ajax({
                         method: 'PUT',
                         data: {
@@ -301,6 +303,61 @@
                         }
                     })
                 }
+            }
+        })
+
+        $("button.change-password").click(function() {
+            let oldPassword = $('#oldPassword').val()
+            let newPassword = $('#newPassword').val()
+            let confirmNewPassword = $('#confirmNewPassword').val()
+
+            if (oldPassword == '' || newPassword == '' || confirmNewPassword == '') {
+                $('#error-password').text('Fields cannot be empty!')
+                $('#error-password').show('blind')
+            } else if (newPassword != confirmNewPassword) {
+                $('#error-password').html('<strong>New Password</strong> didn\'t match the <strong>Confirmation Password</strong>!')
+                $('#error-password').show('blind')
+            } else {
+                $('#error-password').hide('blind')
+                    $.ajax({
+                        method: 'GET',
+                        data: {
+                            oldPassword: oldPassword,
+                        },
+                        dataType: 'json',
+                        url: baseUrl + '/user/check_old_password',
+                        success: function(data) {
+                            if (data == 'NOT_FOUND') {
+                                $('#error-password').html('<strong>Old Password</strong> is wrong!')
+                                $('#error-password').show('blind')
+                            } else {
+                                $('#error-password').hide('blind')
+                                $.ajax({
+                                    method: 'PUT',
+                                    data: {
+                                        _token: _token,
+                                        newPassword: newPassword
+                                    },
+                                    dataType: 'json',
+                                    url: baseUrl + '/user/change_password',
+                                    success: function(data) {
+                                        $('#success-password').show('blind')
+                                        window.setTimeout(function() {
+                                            window.location.reload()
+                                        }, 2000);
+                                    },
+                                    error: function(error) {
+                                        console.error(error)
+                                        $('#error-password').html('Unknown error occured!')
+                                        $('#error-password').show('blind')
+                                    }
+                                })
+                            }
+                        },
+                        error: function(error) {
+                            console.error(error)
+                        }
+                    })
             }
         })
     })
