@@ -8101,6 +8101,7 @@ html.ie11 .bs-searchbox .form-control {
         font-weight: bold; }
       .profile-card .profile-footer ul li span:last-child {
         float: right; }
+
 .centered {
   position: fixed;
   top: 50%;
@@ -8110,3 +8111,11 @@ html.ie11 .bs-searchbox .form-control {
   width: 100%;
 }
 
+.card-img-top {
+  width: 100%; 
+  align-self: stretch;
+}
+
+.p-t--0{
+  padding-top: 0px !important;
+}
