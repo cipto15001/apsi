@@ -129,14 +129,21 @@
 
     <script type="text/javascript">
         $(document).ready(function() {
-            var URL = 'http://localhost:8000/api/webcli/'
-            var workspaceId = JSON.parse("{{ json_encode($workspace->id) }}")
-            var _token = $("input[name='_token']").val()
+            let PORT = window.location.port
+            let BASE_URL = window.location.protocol + '//' + window.location.hostname
+            if (PORT != '')
+                BASE_URL = BASE_URL + ':' + PORT
+            BASE_URL = BASE_URL + '/api/webcli/'
+            let workspaceId = JSON.parse("{{ json_encode($workspace->id) }}")
+            let _token = $("input[name='_token']").val()
             $('#webcli').terminal(function(command) {
                 if (command !== '') {
                     // try {
-                        var result = "Error: unknown error occured."
-                        var splittedCommand = command.split(" ");
+                        let result = "Error: unknown error occured."
+                        let splittedCommand = command.split(" ");
+                        if (splittedCommand.length == 1) {
+                            splittedCommand.push('.')
+                        }
 
                         // do not allow absolute path command
                         if (splittedCommand[1].charAt(0) == '/') {
@@ -144,10 +151,10 @@
                         } else {
                             $.ajax({
                                 type: 'POST',
-                                url: URL + workspaceId + '/do_command',
+                                url: BASE_URL + workspaceId + '/do_command',
                                 data: {
                                     _token: _token,
-                                    command: command
+                                    command: splittedCommand.join(' ')
                                 },
                                 success: function(data) {
                                     result = data;
@@ -156,14 +163,14 @@
                             })
                         }
 
-                        this.echo(result) 
+                        this.echo(result)
                         // $.post(, {command: command, _token: _token}, function(data) {
                         //     console.log("ini di dalam post")
                         //     console.log($('#webcli'))
                         //     $('#webcli').echo('jembod')
                         // });
                         // this.echo(new String("hai"))
-                        // var result = window.eval(command);
+                        // let result = window.eval(command);
                         // if (result !== undefined) {
                         //     this.echo(new String(result));
                         // }
