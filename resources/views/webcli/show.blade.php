@@ -1,82 +1,59 @@
 @extends('layouts.app')
 
 @push('styles')
-    <style>
-        a.info-box-link {
-            text-decoration: none;
-        }
-
-        a .info-box {
-            cursor: pointer;
-        }
-
-        a .info-box h3 {
-            text-decoration: none;
-        }
-
-        .info-box h3 {
-            font-size: 1.8rem !important;
-            margin-top: 0 !important;
-            margin-bottom: 0 !important;
-            line-height: 60px !important;
-        }
-
-        .info-box .icon i {
-            line-height: 60px;
-            font-size: 3.5rem;
-        }
-
-        .info-box .content {
-            padding-top: 0;
-        }
-
-        .info-box {
-            height: 60px !important;
-        }
-    </style>
-
     <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery.terminal/2.0.1/css/jquery.terminal.min.css" rel="stylesheet"/>
-
 @endpush
 
-@section('main-content')
-    <div class="container-fluid">
-        <div class="block-header">
-            <h2>SERVICES</h2>
-        </div>
+@section('the-menu')
+    <div class="block-header">
+        <h2>SERVICES</h2>
+    </div>
 
-        <!-- Widgets -->
-        <div class="row clearfix">
+    <!-- Widgets -->
+    <div class="row clearfix">
             <div class="col-lg-2 col-md-3 col-sm-6 col-xs-12">
-                <a href="{{ route('workspaces.jobs.index', $workspace) }}" class="info-box-link">
-                    <div class="info-box bg-pink hover-expand-effect">
-                        <div class="icon">
-                            <i class="material-icons">playlist_add_check</i>
-                        </div>
-                        <div class="content">
-                            <div><h3>JOBS</h3></div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-6 col-xs-12">
-                <a href="{{ route('workspaces.png2cvt.index', $workspace) }}" class="info-box-link">
-                    <div class="info-box bg-cyan hover-expand-effect">
-                        <div class="icon">
-                            <i class="material-icons">cached</i>
-                        </div>
-                        <div class="content">
-                            <div>
-                                <h3>PNG
-                                    <small><span style="color: #E91E63">to</span></small>
-                                    CVT
-                                </h3>
+                    <a href="{{ route('workspaces.show', $workspace) }}" class="info-box-link">
+                        <div class="info-box bg-teal hover-expand-effect">
+                            <div class="icon">
+                                <i class="material-icons">dashboard</i>
+                            </div>
+                            <div class="content">
+                                <div><h3>Workspace</h3></div>
                             </div>
                         </div>
+                    </a>
+                </div>
+        <div class="col-lg-2 col-md-3 col-sm-6 col-xs-12">
+            <a href="{{ route('workspaces.jobs.index', $workspace) }}" class="info-box-link">
+                <div class="info-box bg-pink hover-expand-effect">
+                    <div class="icon">
+                        <i class="material-icons">playlist_add_check</i>
                     </div>
-                </a>
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-6 col-xs-12">
+                    <div class="content">
+                        <div><h3>JOBS</h3></div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-lg-2 col-md-3 col-sm-6 col-xs-12">
+            <a href="{{ route('workspaces.png2cvt.index', $workspace) }}" class="info-box-link">
+                <div class="info-box bg-cyan hover-expand-effect">
+                    <div class="icon">
+                        <i class="material-icons">cached</i>
+                    </div>
+                    <div class="content">
+                        <div>
+                            <h3>Png
+                                <small><span style="color: #E91E63">to</span></small>
+                                cvt
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-lg-2 col-md-3 col-sm-6 col-xs-12">
+            <a href="{{ route('workspaces.cli', $workspace) }}" class="info-box-link">
                 <div class="info-box bg-light-green hover-expand-effect">
                     <div class="icon">
                         <i class="material-icons">code</i>
@@ -85,21 +62,37 @@
                         <div><h3>Console</h3></div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-6 col-xs-12">
-                <a href="{{ route('workspaces.output.index', $workspace) }}" class="info-box-link">
-                    <div class="info-box bg-orange hover-expand-effect">
-                        <div class="icon">
-                            <i class="material-icons">open_in_new</i>
-                        </div>
-                        <div class="content">
-                            <div><h3>Output</h3></div>
-                        </div>
-                    </div>
-                </a>
-            </div>
+            </a>
         </div>
-        <!-- #END# Widgets -->
+        <div class="col-lg-2 col-md-3 col-sm-6 col-xs-12">
+            <a href="{{ route('render.index', $workspace) }}" class="info-box-link">
+                <div class="info-box bg-brown hover-expand-effect">
+                    <div class="icon">
+                        <i class="material-icons">videocam</i>
+                    </div>
+                    <div class="content">
+                        <div><h3>Render</h3></div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-lg-2 col-md-3 col-sm-6 col-xs-12">
+            <a href="{{ route('workspaces.output.index', $workspace) }}" class="info-box-link">
+                <div class="info-box bg-orange hover-expand-effect">
+                    <div class="icon">
+                        <i class="material-icons">open_in_new</i>
+                    </div>
+                    <div class="content">
+                        <div><h3>Output</h3></div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <!-- #END# Widgets -->
+@endsection
+
+@section('main-content')
         <!-- CPU Usage -->
         <div class="row clearfix">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">

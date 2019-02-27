@@ -21,7 +21,7 @@ class RenderController extends Controller
     {
         $job = Job::where('key', $request->jobKey)->first();
         $wdir = 'output';
-        $movName = 'rendered_video/' . $job->key . '_rendered.webm';
+        $movName = 'rendered_video/' . $job->key . '_rendered.mp4';
         $tmpScriptName = '/tmp/' . str_random(7) . '_' . str_slug(strtolower($job->name), '_') . '_render';
         
         (new SSHService("/$workspace->key"))
@@ -36,6 +36,6 @@ class RenderController extends Controller
             ->commands("bash $tmpScriptName")
             ->run();
 
-        return redirect()->route('workspaces.index', $workspace);
+        return redirect()->route('workspaces.show', $workspace);
     }
 }

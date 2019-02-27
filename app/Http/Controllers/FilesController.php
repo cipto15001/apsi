@@ -10,7 +10,7 @@ class FilesController extends Controller
 {
     public function video(Workspace $workspace)
     {
-        $fileName = "/$workspace->key" . '/output/' . request('file');
+        $fileName = "/$workspace->key/"  . request('file');
 
         $file = (new SSHService())
             ->getFile($fileName);
@@ -31,7 +31,7 @@ class FilesController extends Controller
 
     public function image(Workspace $workspace)
     {
-        $fileName = "/$workspace->key" . '/output/' . request('file');
+        $fileName = "/$workspace->key/" . request('file');
 
         $file = (new SSHService())
             ->getFile($fileName);

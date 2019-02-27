@@ -19,6 +19,9 @@ class OutputController extends Controller
                 ->commands('cd rendered_images')
                 ->commands('ls')
                 ->run();
+            $images = explode("\n", $images);
+            $images = array_slice($images, 1, count($images)-3);
+
             if (count($images) == 0)
                 $images = ['No images found'];
         }

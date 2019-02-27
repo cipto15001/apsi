@@ -11,7 +11,7 @@
                 <div class="card">
                     <div class="header">
                         <h2>
-                            Antrian "Squeque"
+                            Antrian "Squeue"
                         </h2>
                     </div>
                     <div class="body">
@@ -30,13 +30,13 @@
                 <div class="card">
                     <div class="header">
                        <h2>
-                            Error log
+                            Log
                         </h2>
                     </div>
                     <div class="body">
                         <div class="row clearfix">
                             <div class="form-group" style="padding-left: 20px; padding-right: 20px;">
-                              <label for="comment">Error anda pada file log.lammps</label>
+                              <label for="comment">Log Anda pada file log.lammps</label>
                               <textarea class="form-control" rows="20" style="overflow-y: auto;">{{ $errorLogResult }}</textarea>
                             </div>
                         </div>

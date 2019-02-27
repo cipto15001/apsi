@@ -8119,3 +8119,35 @@ html.ie11 .bs-searchbox .form-control {
 .p-t--0{
   padding-top: 0px !important;
 }
+
+  a.info-box-link {
+      text-decoration: none;
+  }
+
+  a .info-box {
+      cursor: pointer;
+  }
+
+  a .info-box h3 {
+      text-decoration: none;
+  }
+
+  .info-box h3 {
+      font-size: 1.8rem !important;
+      margin-top: 0 !important;
+      margin-bottom: 0 !important;
+      line-height: 60px !important;
+  }
+
+  .info-box .icon i {
+      line-height: 60px;
+      font-size: 3.5rem;
+  }
+
+  .info-box .content {
+      padding-top: 0;
+  }
+
+  .info-box {
+      height: 60px !important;
+  }

@@ -145,7 +145,10 @@
 </section>
 
 <section class="content">
-    @yield('main-content')
+    <div class="container-fluid">
+        @yield('the-menu')
+        @yield('main-content')
+    </div>
 </section>
 <!-- #END# Page Loader -->
 @yield('non-main-content')
