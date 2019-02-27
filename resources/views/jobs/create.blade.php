@@ -53,7 +53,7 @@
                     </button>
                 </form>
             </div>
-            <div class="mdl-cell mdl-cell--4-col" style="height: 98%;">
+            <div class="mdl-cell mdl-cell--4-col" style="height: 500px; overflow: auto;">
                 <h4>Available</h4>
                 <ul class="mdl-card mdl-card--border mdl-shadow--2dp" id="available-parameters"
                     style="border-left: 2px solid #fdc02e; min-height: 60px; padding: 0; display: block; padding-bottom: 70px;">
@@ -74,13 +74,13 @@
                     @endforeach
                 </ul>
             </div>
-            <div class="mdl-cell mdl-cell--4-col">
+            <div class="mdl-cell mdl-cell--4-col" style="height: 500px; overflow: auto;">
                 <h4>Used</h4>
                 <ul id="used-parameters" style="padding-left: 0">
 
                 </ul>
             </div>
-            <div class="mdl-cell mdl-cell--4-col" >
+            <div class="mdl-cell mdl-cell--4-col" style="height: 500px; overflow: auto;">
                 <h4>Parameter</h4>
                 <form action="{{ route('jobs.confirm', [$workspace->id, $simulation->slug]) }}" method="POST"
                       style="text-align: center; margin-left: 20px" id="form-attribute">

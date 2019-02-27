@@ -86,7 +86,7 @@
                 </a>
             </div>
             <div class="col-lg-2 col-md-3 col-sm-6 col-xs-12">
-                <a href="{{ route('workspaces.output.index', $workspace) }}" class="info-box-link">
+                <a href="{{ route('render.index', $workspace) }}" class="info-box-link">
                     <div class="info-box bg-brown hover-expand-effect">
                         <div class="icon">
                             <i class="material-icons">videocam</i>

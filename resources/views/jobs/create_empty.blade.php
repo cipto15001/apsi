@@ -23,7 +23,7 @@
                                         <i class="material-icons">dvr</i>
                                     </button>
                                 </a>
-                                <a href="{{ route('workspaces.jobs.edit_template', [$workspace, $simulation->slug]) }}" target="_blank">
+                                <a href="{{ route('workspaces.jobs.edit_in_editor', [$workspace, $simulation->slug]) }}" target="_blank">
                                     <button type="button" class="btn bg-indigo  waves-effect" data-toggle="tooltip" data-placement="top" title="Write Job With Editor">
                                         <i class="material-icons">edit</i>
                                     </button>

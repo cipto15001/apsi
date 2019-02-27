@@ -39,6 +39,13 @@ class JobsController extends Controller
         ]);
     }
 
+    public function editInEditor(Workspace $workspace)
+    {
+        return view('jobs.editor')->with([
+            'workspace' => $workspace,
+        ]);
+    }
+
     public function create(Workspace $workspace, $slug)
     {
         $simulation = Simulation::where('slug', $slug)
@@ -54,7 +61,7 @@ class JobsController extends Controller
     public function store(Workspace $workspace)
     {
         try {
-            $key = date('Y_m_d_h_i_s') . '_' . str_slug(request('title'), '_');
+            $key = date('Y_m_d_h_i_s') . '_' . str_slug(request('name'), '_');
             $latestJob = $workspace->jobs()->orderBy('job_number', 'DESC')->first();
             $params = explode(PHP_EOL, request('input_script'));
 
@@ -75,7 +82,7 @@ class JobsController extends Controller
                 'input_script'  => implode(PHP_EOL, $params),
                 'user_id'       => auth()->user()->id,
                 'simulation_id' => 1,
-                'name'          => request('title'),
+                'name'          => request('name'),
                 'status'        => 'draft',
                 'key'           => $key,
             ]);
@@ -308,6 +315,11 @@ class JobsController extends Controller
             'squeueResult'      => $squeueResult,
             'errorLogResult'    => $errorLogResult
         ]);
+    }
+
+    public function render(Workspace $workspace)
+    {
+        
     }
     /* End Other Block */
 }

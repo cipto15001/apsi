@@ -41,6 +41,7 @@ Route::group([
         Route::get('workspaces/{workspace}/jobs', 'JobsController@index')->name('workspaces.jobs.index');
         Route::get('workspaces/{workspace}/jobs/new', 'JobsController@createEmpty')->name('workspaces.jobs.create_empty');
         Route::get('workspaces/{workspace}/jobs/new/{slug}', 'JobsController@editTemplate')->name('workspaces.jobs.edit_template');
+        Route::get('workspaces/{workspace}/jobs/new/{slug}/editor', 'JobsController@editInEditor')->name('workspaces.jobs.edit_in_editor');
         Route::get('workspaces/{workspace}/jobs/new/{slug}/gui', 'JobsController@create')->name('workspaces.jobs.create_gui');
         Route::post('workspace/{workspace}/jobs', 'JobsController@store')->name('workspaces.jobs.store');
     }
@@ -74,6 +75,10 @@ Route::group([
     Route::get('jobs/refresh/{key}', 'JobsController@refresh')->name('jobs.refresh');
     Route::delete('jobs/{job}', 'JobsController@destroy')->name('jobs.destroy');
     Route::get('workspaces/{workspace}/log', 'LogsController@index')->name('workspaces.logs');
+    
+    // Render
+    Route::get('workspaces/{workspace}/render', 'RenderController@index')->name('render.index');
+    Route::post('workspaces/{workspace}/render', 'RenderController@doRender')->name('render.do_render');
     
     // User
     Route::put('/user/change_email', 'UsersController@changeEmail')->name('users.change_email');
