@@ -263,10 +263,14 @@
 <script src="{{ asset('scripts/material.min.js') }}"></script>
 <script src="{{ asset('vendors/lodash/lodash.min.js') }}"></script>
 @stack('scripts')
-<script>
+<script type="module">
     $(document).ready(function() {
-        let baseUrl = 'http://127.0.0.1:8000'
+        let PORT = window.location.port
+        let BASE_URL = window.location.protocol + '//' + window.location.hostname
+        if (PORT != '')
+            BASE_URL = BASE_URL + ':' + PORT
         let _token = $("input[name='_token']").val()
+        console.log(BASE_URL)
         $("button.change-email").click(function() {
             let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
             let newEmail = $('#newEmail').val()
@@ -291,7 +295,7 @@
                             _token: _token
                         },
                         dataType: 'json',
-                        url: baseUrl + '/user/change_email',
+                        url: BASE_URL + '/user/change_email',
                         success: function(data) {
                             $('#success-email').show('blind')
                             window.setTimeout(function() {
@@ -325,7 +329,7 @@
                             oldPassword: oldPassword,
                         },
                         dataType: 'json',
-                        url: baseUrl + '/user/check_old_password',
+                        url: BASE_URL + '/user/check_old_password',
                         success: function(data) {
                             if (data == 'NOT_FOUND') {
                                 $('#error-password').html('<strong>Old Password</strong> is wrong!')
@@ -339,7 +343,7 @@
                                         newPassword: newPassword
                                     },
                                     dataType: 'json',
-                                    url: baseUrl + '/user/change_password',
+                                    url: BASE_URL + '/user/change_password',
                                     success: function(data) {
                                         $('#success-password').show('blind')
                                         window.setTimeout(function() {

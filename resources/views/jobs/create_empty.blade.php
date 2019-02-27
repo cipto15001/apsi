@@ -28,7 +28,7 @@
                                         <i class="material-icons">edit</i>
                                     </button>
                                 </a>
-                                <a href="{{ route('workspaces.jobs.edit_template', [$workspace, $simulation->slug]) }}" target="_blank">
+                                <a href="{{ route('workspaces.jobs.create_gui', [$workspace, $simulation->slug]) }}" target="_blank">
                                     <button type="button" class="btn bg-indigo waves-effect" data-toggle="tooltip" data-placement="top" title="Write Job With GUI">
                                         <i class="material-icons">touch_app</i>
                                     </button>

@@ -183,19 +183,23 @@
     </script>
     <script>
         $(document).ready(function() {
+            let PORT = window.location.port
+            let BASE_URL = window.location.protocol + '//' + window.location.hostname
+            if (PORT != '')
+                BASE_URL = BASE_URL + ':' + PORT
+
             $('.delete-job').click(function() {
                 let result = confirm("Apakah Anda yakin ingin menghapus job ini?")
                 if (result) {
                     let _token = $("input[name='_token']").val()
                     let workspace = $(this).attr('data-workspace')
                     let job = $(this).attr('data-job')
-                    let baseUrl = 'http://127.0.0.1:8000'
 
                     console.log("Token " + _token + " workspace " + workspace + " job " + job)
 
                     $.ajax({
                         type: 'DELETE',
-                        url: baseUrl + "/workspaces/" + workspace + '/jobs/' + job + '/delete',
+                        url: BASE_URL + "/workspaces/" + workspace + '/jobs/' + job + '/delete',
                         data: {
                             _token: _token
                         },
@@ -218,9 +222,8 @@
                 let jobId = $(this).attr('data-job-id')
                 let workspaceId = $(this).attr('data-workspace-id')
                 let email = $(this).attr('data-email')
-                let baseUrl = 'http://127.0.0.1:8000'
 
-                $('#myModal').find('#run-job').attr('action', baseUrl + '/workspaces/' + workspaceId + '/jobs/' + jobId + '/run')
+                $('#myModal').find('#run-job').attr('action', BASE_URL + '/workspaces/' + workspaceId + '/jobs/' + jobId + '/run')
                 $('#myModal').find('#nama-email').val(email)
                 $('#myModal').find('#job-name').val(jobName)
                 $('#myModal').find('#nama-job').val(jobName)

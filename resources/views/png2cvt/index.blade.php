@@ -54,18 +54,22 @@
 @push('scripts')
 <script>
     $(document).ready(function() {
+        let PORT = window.location.port
+        let BASE_URL = window.location.protocol + '//' + window.location.hostname
+        if (PORT != '')
+            BASE_URL = BASE_URL + ':' + PORT
+
         $('#select-job').change(function() {
             let jobId = $(this).val()
             
             if (jobId !== 'select-job') {
-                let baseUrl = 'http://127.0.0.1:8000'
                 let workspaceId = $(this).attr('data-workspace-id')
 
-                $('#convert-form').attr('action', baseUrl + '/workspaces/' + workspaceId + '/png2cvt/' + jobId + '/doConvert')
+                $('#convert-form').attr('action', BASE_URL + '/workspaces/' + workspaceId + '/png2cvt/' + jobId + '/doConvert')
 
                 $.ajax({
                     type: 'GET',
-                    url: baseUrl + "/workspaces/" + workspaceId + '/jobs/' + jobId + '/getFiles',
+                    url: BASE_URL + "/workspaces/" + workspaceId + '/jobs/' + jobId + '/getFiles',
                     dataType: 'json',
                     success: function(data) {
                         console.log(data)
