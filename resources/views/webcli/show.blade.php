@@ -142,12 +142,13 @@
                         let result = "Error: unknown error occured."
                         let splittedCommand = command.split(" ");
                         if (splittedCommand.length == 1) {
-                            splittedCommand.push('.')
+                            splittedCommand.push('./')
                         }
 
                         // do not allow absolute path command
-                        if (splittedCommand[1].charAt(0) == '/') {
-                            result = 'Error: cannot access with absolute path.'
+                        if ((splittedCommand[1].charAt(0) == '/' && splittedCommand[1].split('/')[1] != 'scratch')
+                                && (splittedCommand[1].charAt(0) == '/' && splittedCommand[1].split('/')[1] != 'tmp')) {
+                            result = 'Error: permission denied.'
                         } else {
                             $.ajax({
                                 type: 'POST',
