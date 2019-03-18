@@ -467,7 +467,8 @@
                         		data: {
 			   		    fullname: userFullname,
 			    		    email: userEmail,
-			    		    password: userPassword,
+					    password: userPassword,
+					    role: userRole,
 			    		    _token: _token
                         		},
                         		dataType: 'json',

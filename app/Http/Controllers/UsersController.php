@@ -171,7 +171,8 @@ class UsersController extends Controller
     public function addNewUser(Request $request) {
 	$fullname = $request->fullname;
 	$email = $request->email;
-        $password = Hash::make($request->password);
+	$password = Hash::make($request->password);
+	$role = $request->role;
 
 	try {
 	    DB::beginTransaction();
@@ -179,7 +180,7 @@ class UsersController extends Controller
 		'name' => $fullname,
 		'email' => $email,
 		'password' => $password,
-		'role' => 'user'
+		'role' => $role
 	    ]);
 	    DB::commit();
 	    return response()->json('OK');

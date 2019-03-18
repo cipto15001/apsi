@@ -141,34 +141,60 @@
                     // try {
                         let result = "Error: unknown error occured."
                         let splittedCommand = command.split(" ");
-                        if (splittedCommand.length == 1) {
-                            splittedCommand.push('./')
-                        }
+			
+			if (splittedCommand.length == 1 && (splittedCommand[0] == 'ls' || splittedCommand[0] == 'cd')) {
+		  	    splittedCommand.push('./')
+			    $.ajax({
+                              	    type: 'POST',
+                               	    url: BASE_URL + workspaceId + '/do_command',
+                               	    data: {
+                                    	_token: _token,
+                                    	command: splittedCommand.join(' ')
+                                    },
+                                    success: function(data) {
+                                    	result = data;
+                                    },
+                                    async: false
+			        })
+			} else if (splittedCommand.length == 1 && (splittedCommand[0] != 'ls' && splittedCommand[0] != 'cd')) {
+		            $.ajax({
+                              	    type: 'POST',
+                               	    url: BASE_URL + workspaceId + '/do_command',
+                               	    data: {
+                                    	_token: _token,
+                                    	command: splittedCommand.join(' ')
+                                    },
+                                    success: function(data) {
+                                    	result = data;
+                                    },
+                                    async: false
+			        })
 
+			} else {
                         // do not allow absolute path command
-                        if ((splittedCommand[1].charAt(0) == '/' && splittedCommand[1].split('/')[1] != 'scratch')
-                                && (splittedCommand[1].charAt(0) == '/' && splittedCommand[1].split('/')[1] != 'tmp')) {
-                            result = 'Error: permission denied.'
-                        } else {
-                            $.ajax({
-                                type: 'POST',
-                                url: BASE_URL + workspaceId + '/do_command',
-                                data: {
-                                    _token: _token,
-                                    command: splittedCommand.join(' ')
-                                },
-                                success: function(data) {
-                                    result = data;
-                                },
-                                async: false
-                            })
+                            if ((splittedCommand[1].charAt(0) == '/' && splittedCommand[1].split('/')[1] != 'scratch')
+                                 && (splittedCommand[1].charAt(0) == '/' && splittedCommand[1].split('/')[1] != 'tmp')) {
+                        	    result = 'Error: permission denied.'
+			    } else {
+                            	$.ajax({
+                              	    type: 'POST',
+                               	    url: BASE_URL + workspaceId + '/do_command',
+                               	    data: {
+                                    	_token: _token,
+                                    	command: splittedCommand.join(' ')
+                                    },
+                                    success: function(data) {
+                                    	result = data;
+                                    },
+                                    async: false
+			        })
+			    }
                         }
 
                         this.echo(result)
                         // $.post(, {command: command, _token: _token}, function(data) {
                         //     console.log("ini di dalam post")
                         //     console.log($('#webcli'))
-                        //     $('#webcli').echo('jembod')
                         // });
                         // this.echo(new String("hai"))
                         // let result = window.eval(command);
