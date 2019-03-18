@@ -40,7 +40,7 @@
                                 <i class="material-icons">delete</i>
                                 <span>Delete</span>
                             </button>
-                            <a href="{{ route('workspaces.show', $workspace) }}" target="_blank">
+                            <a href="{{ route('workspaces.show', $workspace) }}">
                                 <button type="button" class="btn bg-light-blue waves-effect">
                                     <i class="material-icons">launch</i>
                                     <span>Open</span>

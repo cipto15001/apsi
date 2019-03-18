@@ -11,12 +11,12 @@
   <title>angular-filemanager</title>
 
   <!-- third party -->
-    <script src="file_manager/node_modules/jquery/dist/jquery.min.js"></script>
-    <script src="file_manager/node_modules/angular/angular.min.js"></script>
-    <script src="file_manager/node_modules/angular-translate/dist/angular-translate.min.js"></script>
-    <script src="file_manager/node_modules/ng-file-upload/dist/ng-file-upload.min.js"></script>
-    <script src="file_manager/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="file_manager/node_modules/bootswatch/paper/bootstrap.min.css" />
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="node_modules/angular/angular.min.js"></script>
+    <script src="node_modules/angular-translate/dist/angular-translate.min.js"></script>
+    <script src="node_modules/ng-file-upload/dist/ng-file-upload.min.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="node_modules/bootswatch/paper/bootstrap.min.css" />
   <!-- /third party -->
 
   <!-- Uncomment if you need to use raw source code

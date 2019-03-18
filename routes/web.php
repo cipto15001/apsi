@@ -87,15 +87,15 @@ Route::group([
 });
 Route::post('api/webcli/{workspace}/do_command', 'WebCLIController@doCommand');
 
-Route::post('api/file_manager/list', 'FilesManagerController@list');
-Route::post('api/file_manager/rename', 'FilesManagerController@rename');
-Route::post('api/file_manager/createFolder', 'FilesManagerController@createFolder');
-Route::post('api/file_manager/remove', 'FilesManagerController@remove');
-Route::post('api/file_manager/move', 'FilesManagerController@move');
-Route::post('api/file_manager/compress', 'FilesManagerController@compress');
-Route::post('api/file_manager/extract', 'FilesManagerController@extract');
-Route::post('api/file_manager/upload', 'FilesManagerController@upload');
-Route::post('api/file_manager/copy', 'FilesManagerController@copy');
-Route::post('api/file_manager/getContent', 'FilesManagerController@getContent');
-Route::post('api/file_manager/edit', 'FilesManagerController@edit');
-Route::get('api/file_manager/download', 'FilesManagerController@download');
+Route::post('file_manager/api-filemanager/list', 'FilesManagerController@list');
+Route::post('file_manager/api-filemanager/rename', 'FilesManagerController@rename');
+Route::post('file_manager/api-filemanager/createFolder', 'FilesManagerController@createFolder');
+Route::post('file_manager/api-filemanager/remove', 'FilesManagerController@remove');
+Route::post('file_manager/api-filemanager/move', 'FilesManagerController@move');
+Route::post('file_manager/api-filemanager/compress', 'FilesManagerController@compress');
+Route::post('file_manager/api-filemanager/extract', 'FilesManagerController@extract');
+Route::post('file_manager/api-filemanager/upload', 'FilesManagerController@upload');
+Route::post('file_manager/api-filemanager/copy', 'FilesManagerController@copy');
+Route::post('file_manager/api-filemanager/getContent', 'FilesManagerController@getContent');
+Route::post('file_manager/api-filemanager/edit', 'FilesManagerController@edit');
+Route::get('file_manager/api-filemanager/download', 'FilesManagerController@download');

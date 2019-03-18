@@ -18,17 +18,17 @@
                                 <p class="align-left">{{ $simulation->description }}</p>
                             </div>
                             <div class="body bg-amber p-t--0 ">
-                                <a class="p-t-0" href="{{ route('workspaces.jobs.edit_template', [$workspace, $simulation->slug]) }}" target="_blank">
+                                <a class="p-t-0" href="{{ route('workspaces.jobs.edit_template', [$workspace, $simulation->slug]) }}" >
                                     <button type="button" class="btn bg-indigo waves-effect" data-toggle="tooltip" data-placement="top" title="Write Job With Template">
                                         <i class="material-icons">dvr</i>
                                     </button>
                                 </a>
-                                <a href="{{ route('workspaces.jobs.edit_in_editor', [$workspace, $simulation->slug]) }}" target="_blank">
+                                <a href="{{ route('workspaces.jobs.edit_in_editor', [$workspace, $simulation->slug]) }}" >
                                     <button type="button" class="btn bg-indigo  waves-effect" data-toggle="tooltip" data-placement="top" title="Write Job With Editor">
                                         <i class="material-icons">edit</i>
                                     </button>
                                 </a>
-                                <a href="{{ route('workspaces.jobs.create_gui', [$workspace, $simulation->slug]) }}" target="_blank">
+                                <a href="{{ route('workspaces.jobs.create_gui', [$workspace, $simulation->slug]) }}" >
                                     <button type="button" class="btn bg-indigo waves-effect" data-toggle="tooltip" data-placement="top" title="Write Job With GUI">
                                         <i class="material-icons">touch_app</i>
                                     </button>
