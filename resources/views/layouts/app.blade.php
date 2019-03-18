@@ -120,7 +120,12 @@
                                     <button class="btn btn-success btn-block" type="button" data-toggle="modal"
                                     data-target="#changeEmail">Change Email</button>
                                     <button class="btn btn-primary btn-block" type="button" data-toggle="modal"
-                                    data-target="#changePassword">Change Password</button>
+				    data-target="#changePassword">Change Password</button>
+				    @if(auth()->user()->role == 'admin')
+				    	<button class="btn btn-primary btn-block" type="button" data-toggle="modal"
+                                    data-target="#addUser">Add User</button>
+
+				    @endif
                                     <button class="btn btn-danger btn-block" type="submit">Logout</button>
                                 </form>
                             </div>
@@ -231,6 +236,62 @@
                 </div>
                 <div class="modal-footer">
                     <button type="utton" class="btn btn-success waves-effect bg-amber change-password">Change
+                    </button>
+                    <button type="button" class="btn btn-danger waves-effect bg-red" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="addUser" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-blue-grey">
+                    <h3>
+                        Add New User
+                    </h3>
+                </div>
+                <div class="modal-body">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="body">
+                            <div id="error-add-user" style="display: none;" class="alert alert-danger"></div>
+                            <div id="success-add-user" style="display: none;" class="alert alert-success">New user added successfully!</div>
+                            {{ csrf_field() }}
+                            <label for="title">User's Fullname</label>
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input type="text" id="userFullname" class="form-control" required
+                                        placeholder="Input user's fullname">
+                                </div>
+                            </div>
+			    <label for="title">User's Email</label>
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input type="text" id="userEmail" class="form-control" required
+                                        placeholder="Input user's email">
+                                </div>
+                            </div>
+
+			    <label for="description">User's Password</label>
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input type="password" id="userPassword" class="form-control" required
+                                        placeholder="Input user's password">
+                                </div>
+			    </div>
+			    <label for="role">User's Role</label>
+			    <div class="form-group">
+                            	<div class="form-line">
+				    <select id="userRole" class="form-control show-tick" required>                                        				      		      <option value="admin">Administrator</option>
+					<option value="user">User</option>
+                                    </select>
+                            	</div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-success waves-effect bg-amber add-user">Add
                     </button>
                     <button type="button" class="btn btn-danger waves-effect bg-red" data-dismiss="modal">Close</button>
                 </div>
@@ -366,7 +427,68 @@
                         }
                     })
             }
-        })
+	})
+
+	$('button.add-user').click(function() {
+	    let userFullname = $('#userFullname').val()
+            let userEmail = $('#userEmail').val()
+	    let userPassword = $('#userPassword').val()
+	    let userRole = $('#userRole').find(':selected').val()
+	    let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+	    if (!re.test(String(userEmail).toLowerCase())) {
+		$('#error-add-user').text('Invalid email format!')
+	    	$('#error-add-user').show('blind')
+	    } else if (userFullname === '') {
+		$('#error-add-user').text('Please fill the User\'s Fullname field!')
+	    	$('#error-add-user').show('blind')
+	    } else if (userEmail === '') {
+		$('#error-add-user').text('User\'s Email field cannot be empty!')
+	    	$('#error-add-user').show('blind')
+	    } else if (userPassword === '') {
+		$('#error-add-user').text('User\s Password field cannot be empty!')
+	    	$('#error-add-user').show('blind')
+	    } else {
+		$('#error-add-user').hide('blind')
+		    $.ajax({
+                        method: 'GET',
+                        data: {
+                            email: userEmail,
+                        },
+                        dataType: 'json',
+                        url: BASE_URL + '/user/check_email',
+                        success: function(data) {
+                            if (data == 'OK') {
+                                $('#error-add-user').html('Email is already taken!')
+                                $('#error-add-user').show('blind')
+                            } else {
+                                $.ajax({
+                        	    method: 'POST',
+                        		data: {
+			   		    fullname: userFullname,
+			    		    email: userEmail,
+			    		    password: userPassword,
+			    		    _token: _token
+                        		},
+                        		dataType: 'json',
+                        		url: BASE_URL + '/user/add_new_user',
+                        		success: function(data) {
+			    		    $('#success-add-user').show('blind')
+					},
+                        		error: function(error) {
+                            		    console.error(error)
+                        		}
+	    	   		 })
+                            }
+                        },
+                        error: function(error) {
+                            console.error(error)
+                        }
+                    })   
+		    
+	    }
+
+	})
     })
 </script>
 </body>

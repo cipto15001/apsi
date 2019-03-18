@@ -11,7 +11,7 @@
 
         <!-- Widgets -->
         <div class="row clearfix">
-            @foreach (\App\Workspace::limit(10)->latest()->get() as $workspace)
+            @foreach ($workspaces as $workspace)
                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                     <div class="card">
                         <div class="header bg-blue">

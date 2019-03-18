@@ -16,7 +16,9 @@ class WorkspacesController extends Controller
      */
     public function index()
     {
-        return view('workspaces.index');
+	$id = auth()->user()->id;
+	$workspaces = Workspace::where('manager_id', $id)->latest()->get();
+	return view('workspaces.index')->with(['workspaces' => $workspaces]);
     }
 
     /**

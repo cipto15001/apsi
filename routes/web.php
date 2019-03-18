@@ -83,7 +83,9 @@ Route::group([
     // User
     Route::put('/user/change_email', 'UsersController@changeEmail')->name('users.change_email');
     Route::get('/user/check_old_password', 'UsersController@checkOldPassword')->name('users.check_old_password');
+    Route::get('/user/check_email', 'UsersController@checkEmail')->name('users.check_email');
     Route::put('/user/change_password', 'UsersController@changePassword')->name('users.change_password');
+    Route::post('/user/add_new_user', 'UsersController@addNewUser')->name('users.add_new_user');
 });
 Route::post('api/webcli/{workspace}/do_command', 'WebCLIController@doCommand');
 

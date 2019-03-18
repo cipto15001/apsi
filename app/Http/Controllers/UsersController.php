@@ -6,6 +6,7 @@ use App\User;
 use Illuminate\Support\Facades\Auth;
 use DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UsersController extends Controller
 {
@@ -157,4 +158,34 @@ class UsersController extends Controller
             throw $e;
         }
     }
+
+    public function checkEmail(Request $request)
+    {
+	$user = User::where('email', $request->email)->first();
+	if (count($user) == 1)
+	    return response()->json('OK');
+	else
+	    return response()->json('NOT_FOUND');
+    }
+
+    public function addNewUser(Request $request) {
+	$fullname = $request->fullname;
+	$email = $request->email;
+        $password = Hash::make($request->password);
+
+	try {
+	    DB::beginTransaction();
+	    User::create([
+		'name' => $fullname,
+		'email' => $email,
+		'password' => $password,
+		'role' => 'user'
+	    ]);
+	    DB::commit();
+	    return response()->json('OK');
+	} catch (\Exception $e) {
+	    DB::rollback();
+    	    throw $e;
+	}
+    }	
 }
