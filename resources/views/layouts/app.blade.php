@@ -281,7 +281,8 @@
 			    <label for="role">User's Role</label>
 			    <div class="form-group">
                             	<div class="form-line">
-				    <select id="userRole" class="form-control show-tick" required>                                        				      		      <option value="admin">Administrator</option>
+				    <select id="userRole" class="form-control show-tick" required>
+                                        <option value="admin">Administrator</option>
 					<option value="user">User</option>
                                     </select>
                             	</div>
