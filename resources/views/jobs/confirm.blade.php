@@ -19,7 +19,7 @@
                 <div class="body">
                     <form action="{{ route('workspaces.jobs.store', $workspace) }}" method="POST">
                         {{ csrf_field() }}
-                        <input type="hidden" name="title" value="{{ $job_name }}">
+                        <input type="hidden" name="name" value="{{ $job_name }}">
                         <div class="form-group">
                             <div class="form-line" style="font-family: Consolas">
                             <textarea name="input_script" rows="10" class="form-control no-resize auto-growth"
