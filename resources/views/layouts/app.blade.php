@@ -121,6 +121,8 @@
                                     data-target="#changeEmail">Change Email</button>
                                     <button class="btn btn-primary btn-block" type="button" data-toggle="modal"
                                     data-target="#changePassword">Change Password</button>
+                                    <button class="btn btn-primary btn-block" type="button" data-toggle="modal"
+                                    data-target="#addUser">Add User</button>
                                     <button class="btn btn-danger btn-block" type="submit">Logout</button>
                                 </form>
                             </div>
@@ -237,6 +239,68 @@
             </div>
         </div>
     </div>
+    <div class="modal fade" id="addUser" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-blue-grey">
+                    <h3>
+                        Add User
+                    </h3>
+                </div>
+                <div class="modal-body">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="body">
+                            <div id="error-add-user" style="display: none;" class="alert alert-danger"></div>
+                            <div id="success-add-user" style="display: none;" class="alert alert-success">User has been successfully added!</div>
+                            <label for="title">Fullname</label>
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input type="text" id="fullname" class="form-control" required
+                                        placeholder="Input fullname" requred>
+                                </div>
+                            </div>
+                            <label for="description">Email</label>
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input type="email" id="email" class="form-control" required
+                                        placeholder="Input email" required>
+                                </div>
+                            </div>
+                            <label for="description">Password</label>
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input type="password" id="userPassword" class="form-control" required
+                                        placeholder="Input password" required>
+                                </div>
+                            </div>
+                            <label for="description">Confirm Password</label>
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input type="password" id="userConfirmPassword" class="form-control" required
+                                        placeholder="Input confirmation password" required>
+                                </div>
+                            </div>
+                            <label for="description">Role</label>
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <select id="role">
+                                        <option value="admin">Administrator</option>
+                                        <option value="user">User</option>
+                                    </select>
+                                </div>
+                            </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success waves-effect bg-amber add-new-user">Add
+                    </button>
+                    <button type="button" class="btn btn-danger waves-effect bg-red" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 <!-- Jquery Core Js -->
@@ -278,7 +342,7 @@
             let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
             let newEmail = $('#newEmail').val()
             let confirmEmail = $('#confirmEmail').val()
-            
+
             if (newEmail == '' || confirmEmail == '') {
                 $('#error-email').text('Fields cannot be empty!')
                 $('#error-email').show('blind')
@@ -365,6 +429,68 @@
                             console.error(error)
                         }
                     })
+            }
+        })
+
+        $("button.add-new-user").click(function() {
+            /* Get all form input value */
+            let fullname = $('#fullname').val()
+            let email = $('#email').val()
+            let userPassword = $('#userPassword').val()
+            let userConfirmPassword = $('#userConfirmPassword').val()
+            let role = $('#role option:selected').val()
+            let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            // console.log(fullname, email, username, userPassword, userConfirmPassword, role)
+
+            if (fullname == '' || email == '' || userPassword == '' || userConfirmPassword == '') {
+                $('#error-add-user').text('Fields cannot be empty!')
+                $('#error-add-user').show('blind')
+            } else if (userPassword != userConfirmPassword) {
+                $('#error-add-user').html('<strong>Password</strong> didn\'t match the <strong>Confirm Password</strong>!')
+                $('#error-add-user').show('blind')
+            } else if (!re.test(String(email).toLowerCase())) {
+                $('#error-add-user').html('<strong>Email</strong> format is wrong!')
+                $('#error-add-user').show('blind')
+            } else {
+                $('#error-add-user').hide('blind')
+                $.ajax({
+                    method: 'GET',
+                    data: {
+                        email: email
+                    },
+                    dataType: 'json',
+                    url: BASE_URL + '/user/check_email',
+                    success: function(data) {
+                        if (data == 'EMAIL_EXIST') {
+                            $('#error-add-user').html('<strong>Email</strong> already in use!')
+                            $('#error-add-user').show('blind')
+                        } if (data == 'EMAIL_AVAILABLE') {
+                            $.ajax({
+                                method: 'POST',
+                                data: {
+                                    _token: _token,
+                                    name: fullname,
+                                    email: email,
+                                    password: userPassword,
+                                    role: role
+                                },
+                                dataType: 'json',
+                                url: BASE_URL + '/user/add_new_user',
+                                success: function(data) {
+                                    $('#success-add-user').show('blind')
+                                    window.setTimeout(function() {
+                                        window.location.reload()
+                                    }, 2000);
+                                },
+                                error: function(error) {
+                                    console.error(error)
+                                    $('#error-password').html('Unknown error occured!')
+                                    $('#error-password').show('blind')
+                                }
+                            })
+                        }
+                    }
+                })
             }
         })
     })

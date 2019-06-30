@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Services\SSHService;
 use App\Workspace;
+use App\User;
 use DB;
 use Ramsey\Uuid\Uuid;
 
@@ -16,7 +17,13 @@ class WorkspacesController extends Controller
      */
     public function index()
     {
-        return view('workspaces.index');
+        // auth()->loginUsingId(1);
+        $user = auth()->user();
+        // \DB::enableQueryLog();
+        // ddr($user, $user->workspaces, \DB::getQueryLog());
+        // $user = User::with('workspaces')->where('email', auth()->user()->email)->first();
+        // dd($user);
+        return view('workspaces.index')->with('workspaces', $user->workspaces);
     }
 
     /**

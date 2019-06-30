@@ -45,7 +45,7 @@ Route::group([
         Route::get('workspaces/{workspace}/jobs/new/{slug}/gui', 'JobsController@create')->name('workspaces.jobs.create_gui');
         Route::post('workspace/{workspace}/jobs', 'JobsController@store')->name('workspaces.jobs.store');
     }
-    
+
     // Job Update
     {
         Route::get('workspaces/{workspace}/jobs/{job}/edit', 'JobsController@edit')->name('workspaces.jobs.edit');
@@ -75,15 +75,17 @@ Route::group([
     Route::get('jobs/refresh/{key}', 'JobsController@refresh')->name('jobs.refresh');
     Route::delete('jobs/{job}', 'JobsController@destroy')->name('jobs.destroy');
     Route::get('workspaces/{workspace}/log', 'LogsController@index')->name('workspaces.logs');
-    
+
     // Render
     Route::get('workspaces/{workspace}/render', 'RenderController@index')->name('render.index');
     Route::post('workspaces/{workspace}/render', 'RenderController@doRender')->name('render.do_render');
-    
+
     // User
     Route::put('/user/change_email', 'UsersController@changeEmail')->name('users.change_email');
     Route::get('/user/check_old_password', 'UsersController@checkOldPassword')->name('users.check_old_password');
     Route::put('/user/change_password', 'UsersController@changePassword')->name('users.change_password');
+    Route::post('/user/add_new_user', 'UsersController@store')->name('users.add_new_user');
+    Route::get('/user/check_email', 'UsersController@checkEmail')->name('users.check_email');
 });
 Route::post('api/webcli/{workspace}/do_command', 'WebCLIController@doCommand');
 

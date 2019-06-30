@@ -50,7 +50,8 @@ class UsersController extends Controller
             ddr ($e);
         }
 
-        return redirect()->route('users.index');
+        return response()->json('OK');
+        // return redirect()->route('users.index');
     }
 
     /**
@@ -155,6 +156,16 @@ class UsersController extends Controller
         } catch (\Exception $e) {
             DB::rollback();
             throw $e;
+        }
+    }
+
+    public function checkEmail(Request $request)
+    {
+        $user = User::where('email', $request->email)->get();
+        if (count($user) == 0) {
+            return response()->json('EMAIL_AVAILABLE');
+        } else {
+            return response()->json('EMAIL_EXIST');
         }
     }
 }
