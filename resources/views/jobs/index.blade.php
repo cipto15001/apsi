@@ -122,7 +122,7 @@
                         @foreach ($workspace->jobs as $job)
                         <tr>
                             <th scope="row">{{ $loop->iteration }}</th>
-                            <th><a href="{{ route('workspaces.jobs.edit', [$workspace->id, $job->key]) }}">{{ $job->key }}</a></th>
+                            <th><a href="{{ route('workspaces.jobs.edit', [$workspace->id, $job]) }}">{{ $job->key }}</a></th>
                             <th></th>
                             <td>{{ $job->name }}</td>
                             <td>{{ $job->created_at->format('d F Y') }}</td>
@@ -294,10 +294,10 @@
                         dataType: 'json',
                         success: function(data) {
                             window.location.reload()
-                        },                  
+                        },
                         error: function(error) {
                             alert("An error occured: " + error)
-                        }      
+                        }
                     })
                 }
             })
@@ -305,7 +305,7 @@
             $('.toggle-the-modal').click(function() {
                 let jobKey = $(this).attr('data-job-key')
                 let jobNameArray = jobKey.split("_").slice(6, jobKey.length)
-                
+
                 let jobName = jobNameArray.join(" ")
                 let jobId = $(this).attr('data-job-id')
                 let workspaceId = $(this).attr('data-workspace-id')
